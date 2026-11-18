@@ -1,0 +1,1208 @@
+{
+ "1": [
+  "voiceover-pack/1.ogg",
+  "voiceover-pack-fighter/1.ogg"
+ ],
+ "2": [
+  "voiceover-pack/2.ogg",
+  "voiceover-pack-fighter/2.ogg"
+ ],
+ "3": [
+  "voiceover-pack/3.ogg",
+  "voiceover-pack-fighter/3.ogg"
+ ],
+ "4": [
+  "voiceover-pack/4.ogg",
+  "voiceover-pack-fighter/4.ogg"
+ ],
+ "5": [
+  "voiceover-pack/5.ogg",
+  "voiceover-pack-fighter/5.ogg"
+ ],
+ "6": [
+  "voiceover-pack/6.ogg",
+  "voiceover-pack-fighter/6.ogg"
+ ],
+ "7": [
+  "voiceover-pack/7.ogg",
+  "voiceover-pack-fighter/7.ogg"
+ ],
+ "8": [
+  "voiceover-pack/8.ogg",
+  "voiceover-pack-fighter/8.ogg"
+ ],
+ "9": [
+  "voiceover-pack/9.ogg",
+  "voiceover-pack-fighter/9.ogg"
+ ],
+ "10": [
+  "voiceover-pack/10.ogg",
+  "voiceover-pack-fighter/10.ogg"
+ ],
+ "card-fan": [
+  "casino-audio/card-fan-1.ogg",
+  "casino-audio/card-fan-2.ogg"
+ ],
+ "card-place": [
+  "casino-audio/card-place-1.ogg",
+  "casino-audio/card-place-2.ogg",
+  "casino-audio/card-place-3.ogg",
+  "casino-audio/card-place-4.ogg"
+ ],
+ "card-shove": [
+  "casino-audio/card-shove-1.ogg",
+  "casino-audio/card-shove-2.ogg",
+  "casino-audio/card-shove-3.ogg",
+  "casino-audio/card-shove-4.ogg"
+ ],
+ "card-shuffle": [
+  "casino-audio/card-shuffle.ogg"
+ ],
+ "card-slide": [
+  "casino-audio/card-slide-1.ogg",
+  "casino-audio/card-slide-2.ogg",
+  "casino-audio/card-slide-3.ogg",
+  "casino-audio/card-slide-4.ogg",
+  "casino-audio/card-slide-5.ogg",
+  "casino-audio/card-slide-6.ogg",
+  "casino-audio/card-slide-7.ogg",
+  "casino-audio/card-slide-8.ogg"
+ ],
+ "cards-pack-open": [
+  "casino-audio/cards-pack-open-1.ogg",
+  "casino-audio/cards-pack-open-2.ogg"
+ ],
+ "cards-pack-take-out": [
+  "casino-audio/cards-pack-take-out-1.ogg",
+  "casino-audio/cards-pack-take-out-2.ogg"
+ ],
+ "chip-lay": [
+  "casino-audio/chip-lay-1.ogg",
+  "casino-audio/chip-lay-2.ogg",
+  "casino-audio/chip-lay-3.ogg"
+ ],
+ "chips-collide": [
+  "casino-audio/chips-collide-1.ogg",
+  "casino-audio/chips-collide-2.ogg",
+  "casino-audio/chips-collide-3.ogg",
+  "casino-audio/chips-collide-4.ogg"
+ ],
+ "chips-handle": [
+  "casino-audio/chips-handle-1.ogg",
+  "casino-audio/chips-handle-2.ogg",
+  "casino-audio/chips-handle-3.ogg",
+  "casino-audio/chips-handle-4.ogg",
+  "casino-audio/chips-handle-5.ogg",
+  "casino-audio/chips-handle-6.ogg"
+ ],
+ "chips-stack": [
+  "casino-audio/chips-stack-1.ogg",
+  "casino-audio/chips-stack-2.ogg",
+  "casino-audio/chips-stack-3.ogg",
+  "casino-audio/chips-stack-4.ogg",
+  "casino-audio/chips-stack-5.ogg",
+  "casino-audio/chips-stack-6.ogg"
+ ],
+ "dice-grab": [
+  "casino-audio/dice-grab-1.ogg",
+  "casino-audio/dice-grab-2.ogg"
+ ],
+ "dice-shake": [
+  "casino-audio/dice-shake-1.ogg",
+  "casino-audio/dice-shake-2.ogg",
+  "casino-audio/dice-shake-3.ogg"
+ ],
+ "dice-throw": [
+  "casino-audio/dice-throw-1.ogg",
+  "casino-audio/dice-throw-2.ogg",
+  "casino-audio/dice-throw-3.ogg"
+ ],
+ "die-throw": [
+  "casino-audio/die-throw-1.ogg",
+  "casino-audio/die-throw-2.ogg",
+  "casino-audio/die-throw-3.ogg",
+  "casino-audio/die-throw-4.ogg"
+ ],
+ "highDown": [
+  "digital-audio/highDown.ogg"
+ ],
+ "highUp": [
+  "digital-audio/highUp.ogg"
+ ],
+ "laser": [
+  "digital-audio/laser1.ogg",
+  "digital-audio/laser2.ogg",
+  "digital-audio/laser3.ogg",
+  "digital-audio/laser4.ogg",
+  "digital-audio/laser5.ogg",
+  "digital-audio/laser6.ogg",
+  "digital-audio/laser7.ogg",
+  "digital-audio/laser8.ogg",
+  "digital-audio/laser9.ogg"
+ ],
+ "lowDown": [
+  "digital-audio/lowDown.ogg"
+ ],
+ "lowRandom": [
+  "digital-audio/lowRandom.ogg"
+ ],
+ "lowThreeTone": [
+  "digital-audio/lowThreeTone.ogg"
+ ],
+ "pepSound": [
+  "digital-audio/pepSound1.ogg",
+  "digital-audio/pepSound2.ogg",
+  "digital-audio/pepSound3.ogg",
+  "digital-audio/pepSound4.ogg",
+  "digital-audio/pepSound5.ogg"
+ ],
+ "phaseJump": [
+  "digital-audio/phaseJump1.ogg",
+  "digital-audio/phaseJump2.ogg",
+  "digital-audio/phaseJump3.ogg",
+  "digital-audio/phaseJump4.ogg",
+  "digital-audio/phaseJump5.ogg"
+ ],
+ "phaserDown": [
+  "digital-audio/phaserDown1.ogg",
+  "digital-audio/phaserDown2.ogg",
+  "digital-audio/phaserDown3.ogg"
+ ],
+ "phaserUp": [
+  "digital-audio/phaserUp1.ogg",
+  "digital-audio/phaserUp2.ogg",
+  "digital-audio/phaserUp3.ogg",
+  "digital-audio/phaserUp4.ogg",
+  "digital-audio/phaserUp5.ogg",
+  "digital-audio/phaserUp6.ogg",
+  "digital-audio/phaserUp7.ogg"
+ ],
+ "powerUp": [
+  "digital-audio/powerUp1.ogg",
+  "digital-audio/powerUp10.ogg",
+  "digital-audio/powerUp11.ogg",
+  "digital-audio/powerUp12.ogg",
+  "digital-audio/powerUp2.ogg",
+  "digital-audio/powerUp3.ogg",
+  "digital-audio/powerUp4.ogg",
+  "digital-audio/powerUp5.ogg",
+  "digital-audio/powerUp6.ogg",
+  "digital-audio/powerUp7.ogg",
+  "digital-audio/powerUp8.ogg",
+  "digital-audio/powerUp9.ogg"
+ ],
+ "spaceTrash": [
+  "digital-audio/spaceTrash1.ogg",
+  "digital-audio/spaceTrash2.ogg",
+  "digital-audio/spaceTrash3.ogg",
+  "digital-audio/spaceTrash4.ogg",
+  "digital-audio/spaceTrash5.ogg"
+ ],
+ "threeTone": [
+  "digital-audio/threeTone1.ogg",
+  "digital-audio/threeTone2.ogg"
+ ],
+ "tone": [
+  "digital-audio/tone1.ogg"
+ ],
+ "twoTone": [
+  "digital-audio/twoTone1.ogg",
+  "digital-audio/twoTone2.ogg"
+ ],
+ "zap": [
+  "digital-audio/zap1.ogg",
+  "digital-audio/zap2.ogg"
+ ],
+ "zapThreeToneDown": [
+  "digital-audio/zapThreeToneDown.ogg"
+ ],
+ "zapThreeToneUp": [
+  "digital-audio/zapThreeToneUp.ogg"
+ ],
+ "zapTwoTone": [
+  "digital-audio/zapTwoTone.ogg",
+  "digital-audio/zapTwoTone2.ogg"
+ ],
+ "footstep_carpet": [
+  "impact-sounds/footstep_carpet_000.ogg",
+  "impact-sounds/footstep_carpet_001.ogg",
+  "impact-sounds/footstep_carpet_002.ogg",
+  "impact-sounds/footstep_carpet_003.ogg",
+  "impact-sounds/footstep_carpet_004.ogg"
+ ],
+ "footstep_concrete": [
+  "impact-sounds/footstep_concrete_000.ogg",
+  "impact-sounds/footstep_concrete_001.ogg",
+  "impact-sounds/footstep_concrete_002.ogg",
+  "impact-sounds/footstep_concrete_003.ogg",
+  "impact-sounds/footstep_concrete_004.ogg"
+ ],
+ "footstep_grass": [
+  "impact-sounds/footstep_grass_000.ogg",
+  "impact-sounds/footstep_grass_001.ogg",
+  "impact-sounds/footstep_grass_002.ogg",
+  "impact-sounds/footstep_grass_003.ogg",
+  "impact-sounds/footstep_grass_004.ogg"
+ ],
+ "footstep_snow": [
+  "impact-sounds/footstep_snow_000.ogg",
+  "impact-sounds/footstep_snow_001.ogg",
+  "impact-sounds/footstep_snow_002.ogg",
+  "impact-sounds/footstep_snow_003.ogg",
+  "impact-sounds/footstep_snow_004.ogg"
+ ],
+ "footstep_wood": [
+  "impact-sounds/footstep_wood_000.ogg",
+  "impact-sounds/footstep_wood_001.ogg",
+  "impact-sounds/footstep_wood_002.ogg",
+  "impact-sounds/footstep_wood_003.ogg",
+  "impact-sounds/footstep_wood_004.ogg"
+ ],
+ "impactBell_heavy": [
+  "impact-sounds/impactBell_heavy_000.ogg",
+  "impact-sounds/impactBell_heavy_001.ogg",
+  "impact-sounds/impactBell_heavy_002.ogg",
+  "impact-sounds/impactBell_heavy_003.ogg",
+  "impact-sounds/impactBell_heavy_004.ogg"
+ ],
+ "impactGeneric_light": [
+  "impact-sounds/impactGeneric_light_000.ogg",
+  "impact-sounds/impactGeneric_light_001.ogg",
+  "impact-sounds/impactGeneric_light_002.ogg",
+  "impact-sounds/impactGeneric_light_003.ogg",
+  "impact-sounds/impactGeneric_light_004.ogg"
+ ],
+ "impactGlass_heavy": [
+  "impact-sounds/impactGlass_heavy_000.ogg",
+  "impact-sounds/impactGlass_heavy_001.ogg",
+  "impact-sounds/impactGlass_heavy_002.ogg",
+  "impact-sounds/impactGlass_heavy_003.ogg",
+  "impact-sounds/impactGlass_heavy_004.ogg"
+ ],
+ "impactGlass_light": [
+  "impact-sounds/impactGlass_light_000.ogg",
+  "impact-sounds/impactGlass_light_001.ogg",
+  "impact-sounds/impactGlass_light_002.ogg",
+  "impact-sounds/impactGlass_light_003.ogg",
+  "impact-sounds/impactGlass_light_004.ogg"
+ ],
+ "impactGlass_medium": [
+  "impact-sounds/impactGlass_medium_000.ogg",
+  "impact-sounds/impactGlass_medium_001.ogg",
+  "impact-sounds/impactGlass_medium_002.ogg",
+  "impact-sounds/impactGlass_medium_003.ogg",
+  "impact-sounds/impactGlass_medium_004.ogg"
+ ],
+ "impactMetal_heavy": [
+  "impact-sounds/impactMetal_heavy_000.ogg",
+  "impact-sounds/impactMetal_heavy_001.ogg",
+  "impact-sounds/impactMetal_heavy_002.ogg",
+  "impact-sounds/impactMetal_heavy_003.ogg",
+  "impact-sounds/impactMetal_heavy_004.ogg"
+ ],
+ "impactMetal_light": [
+  "impact-sounds/impactMetal_light_000.ogg",
+  "impact-sounds/impactMetal_light_001.ogg",
+  "impact-sounds/impactMetal_light_002.ogg",
+  "impact-sounds/impactMetal_light_003.ogg",
+  "impact-sounds/impactMetal_light_004.ogg"
+ ],
+ "impactMetal_medium": [
+  "impact-sounds/impactMetal_medium_000.ogg",
+  "impact-sounds/impactMetal_medium_001.ogg",
+  "impact-sounds/impactMetal_medium_002.ogg",
+  "impact-sounds/impactMetal_medium_003.ogg",
+  "impact-sounds/impactMetal_medium_004.ogg"
+ ],
+ "impactMining": [
+  "impact-sounds/impactMining_000.ogg",
+  "impact-sounds/impactMining_001.ogg",
+  "impact-sounds/impactMining_002.ogg",
+  "impact-sounds/impactMining_003.ogg",
+  "impact-sounds/impactMining_004.ogg"
+ ],
+ "impactPlank_medium": [
+  "impact-sounds/impactPlank_medium_000.ogg",
+  "impact-sounds/impactPlank_medium_001.ogg",
+  "impact-sounds/impactPlank_medium_002.ogg",
+  "impact-sounds/impactPlank_medium_003.ogg",
+  "impact-sounds/impactPlank_medium_004.ogg"
+ ],
+ "impactPlate_heavy": [
+  "impact-sounds/impactPlate_heavy_000.ogg",
+  "impact-sounds/impactPlate_heavy_001.ogg",
+  "impact-sounds/impactPlate_heavy_002.ogg",
+  "impact-sounds/impactPlate_heavy_003.ogg",
+  "impact-sounds/impactPlate_heavy_004.ogg"
+ ],
+ "impactPlate_light": [
+  "impact-sounds/impactPlate_light_000.ogg",
+  "impact-sounds/impactPlate_light_001.ogg",
+  "impact-sounds/impactPlate_light_002.ogg",
+  "impact-sounds/impactPlate_light_003.ogg",
+  "impact-sounds/impactPlate_light_004.ogg"
+ ],
+ "impactPlate_medium": [
+  "impact-sounds/impactPlate_medium_000.ogg",
+  "impact-sounds/impactPlate_medium_001.ogg",
+  "impact-sounds/impactPlate_medium_002.ogg",
+  "impact-sounds/impactPlate_medium_003.ogg",
+  "impact-sounds/impactPlate_medium_004.ogg"
+ ],
+ "impactPunch_heavy": [
+  "impact-sounds/impactPunch_heavy_000.ogg",
+  "impact-sounds/impactPunch_heavy_001.ogg",
+  "impact-sounds/impactPunch_heavy_002.ogg",
+  "impact-sounds/impactPunch_heavy_003.ogg",
+  "impact-sounds/impactPunch_heavy_004.ogg"
+ ],
+ "impactPunch_medium": [
+  "impact-sounds/impactPunch_medium_000.ogg",
+  "impact-sounds/impactPunch_medium_001.ogg",
+  "impact-sounds/impactPunch_medium_002.ogg",
+  "impact-sounds/impactPunch_medium_003.ogg",
+  "impact-sounds/impactPunch_medium_004.ogg"
+ ],
+ "impactSoft_heavy": [
+  "impact-sounds/impactSoft_heavy_000.ogg",
+  "impact-sounds/impactSoft_heavy_001.ogg",
+  "impact-sounds/impactSoft_heavy_002.ogg",
+  "impact-sounds/impactSoft_heavy_003.ogg",
+  "impact-sounds/impactSoft_heavy_004.ogg"
+ ],
+ "impactSoft_medium": [
+  "impact-sounds/impactSoft_medium_000.ogg",
+  "impact-sounds/impactSoft_medium_001.ogg",
+  "impact-sounds/impactSoft_medium_002.ogg",
+  "impact-sounds/impactSoft_medium_003.ogg",
+  "impact-sounds/impactSoft_medium_004.ogg"
+ ],
+ "impactTin_medium": [
+  "impact-sounds/impactTin_medium_000.ogg",
+  "impact-sounds/impactTin_medium_001.ogg",
+  "impact-sounds/impactTin_medium_002.ogg",
+  "impact-sounds/impactTin_medium_003.ogg",
+  "impact-sounds/impactTin_medium_004.ogg"
+ ],
+ "impactWood_heavy": [
+  "impact-sounds/impactWood_heavy_000.ogg",
+  "impact-sounds/impactWood_heavy_001.ogg",
+  "impact-sounds/impactWood_heavy_002.ogg",
+  "impact-sounds/impactWood_heavy_003.ogg",
+  "impact-sounds/impactWood_heavy_004.ogg"
+ ],
+ "impactWood_light": [
+  "impact-sounds/impactWood_light_000.ogg",
+  "impact-sounds/impactWood_light_001.ogg",
+  "impact-sounds/impactWood_light_002.ogg",
+  "impact-sounds/impactWood_light_003.ogg",
+  "impact-sounds/impactWood_light_004.ogg"
+ ],
+ "impactWood_medium": [
+  "impact-sounds/impactWood_medium_000.ogg",
+  "impact-sounds/impactWood_medium_001.ogg",
+  "impact-sounds/impactWood_medium_002.ogg",
+  "impact-sounds/impactWood_medium_003.ogg",
+  "impact-sounds/impactWood_medium_004.ogg"
+ ],
+ "back": [
+  "interface-sounds/back_001.ogg",
+  "interface-sounds/back_002.ogg",
+  "interface-sounds/back_003.ogg",
+  "interface-sounds/back_004.ogg"
+ ],
+ "bong": [
+  "interface-sounds/bong_001.ogg"
+ ],
+ "click": [
+  "interface-sounds/click_001.ogg",
+  "interface-sounds/click_002.ogg",
+  "interface-sounds/click_003.ogg",
+  "interface-sounds/click_004.ogg",
+  "interface-sounds/click_005.ogg",
+  "ui-audio/click1.ogg",
+  "ui-audio/click2.ogg",
+  "ui-audio/click3.ogg",
+  "ui-audio/click4.ogg",
+  "ui-audio/click5.ogg"
+ ],
+ "close": [
+  "interface-sounds/close_001.ogg",
+  "interface-sounds/close_002.ogg",
+  "interface-sounds/close_003.ogg",
+  "interface-sounds/close_004.ogg"
+ ],
+ "confirmation": [
+  "interface-sounds/confirmation_001.ogg",
+  "interface-sounds/confirmation_002.ogg",
+  "interface-sounds/confirmation_003.ogg",
+  "interface-sounds/confirmation_004.ogg"
+ ],
+ "drop": [
+  "interface-sounds/drop_001.ogg",
+  "interface-sounds/drop_002.ogg",
+  "interface-sounds/drop_003.ogg",
+  "interface-sounds/drop_004.ogg"
+ ],
+ "error": [
+  "interface-sounds/error_001.ogg",
+  "interface-sounds/error_002.ogg",
+  "interface-sounds/error_003.ogg",
+  "interface-sounds/error_004.ogg",
+  "interface-sounds/error_005.ogg",
+  "interface-sounds/error_006.ogg",
+  "interface-sounds/error_007.ogg",
+  "interface-sounds/error_008.ogg"
+ ],
+ "glass": [
+  "interface-sounds/glass_001.ogg",
+  "interface-sounds/glass_002.ogg",
+  "interface-sounds/glass_003.ogg",
+  "interface-sounds/glass_004.ogg",
+  "interface-sounds/glass_005.ogg",
+  "interface-sounds/glass_006.ogg"
+ ],
+ "glitch": [
+  "interface-sounds/glitch_001.ogg",
+  "interface-sounds/glitch_002.ogg",
+  "interface-sounds/glitch_003.ogg",
+  "interface-sounds/glitch_004.ogg"
+ ],
+ "maximize": [
+  "interface-sounds/maximize_001.ogg",
+  "interface-sounds/maximize_002.ogg",
+  "interface-sounds/maximize_003.ogg",
+  "interface-sounds/maximize_004.ogg",
+  "interface-sounds/maximize_005.ogg",
+  "interface-sounds/maximize_006.ogg",
+  "interface-sounds/maximize_007.ogg",
+  "interface-sounds/maximize_008.ogg",
+  "interface-sounds/maximize_009.ogg"
+ ],
+ "minimize": [
+  "interface-sounds/minimize_001.ogg",
+  "interface-sounds/minimize_002.ogg",
+  "interface-sounds/minimize_003.ogg",
+  "interface-sounds/minimize_004.ogg",
+  "interface-sounds/minimize_005.ogg",
+  "interface-sounds/minimize_006.ogg",
+  "interface-sounds/minimize_007.ogg",
+  "interface-sounds/minimize_008.ogg",
+  "interface-sounds/minimize_009.ogg"
+ ],
+ "open": [
+  "interface-sounds/open_001.ogg",
+  "interface-sounds/open_002.ogg",
+  "interface-sounds/open_003.ogg",
+  "interface-sounds/open_004.ogg"
+ ],
+ "pluck": [
+  "interface-sounds/pluck_001.ogg",
+  "interface-sounds/pluck_002.ogg"
+ ],
+ "question": [
+  "interface-sounds/question_001.ogg",
+  "interface-sounds/question_002.ogg",
+  "interface-sounds/question_003.ogg",
+  "interface-sounds/question_004.ogg"
+ ],
+ "scratch": [
+  "interface-sounds/scratch_001.ogg",
+  "interface-sounds/scratch_002.ogg",
+  "interface-sounds/scratch_003.ogg",
+  "interface-sounds/scratch_004.ogg",
+  "interface-sounds/scratch_005.ogg"
+ ],
+ "scroll": [
+  "interface-sounds/scroll_001.ogg",
+  "interface-sounds/scroll_002.ogg",
+  "interface-sounds/scroll_003.ogg",
+  "interface-sounds/scroll_004.ogg",
+  "interface-sounds/scroll_005.ogg"
+ ],
+ "select": [
+  "interface-sounds/select_001.ogg",
+  "interface-sounds/select_002.ogg",
+  "interface-sounds/select_003.ogg",
+  "interface-sounds/select_004.ogg",
+  "interface-sounds/select_005.ogg",
+  "interface-sounds/select_006.ogg",
+  "interface-sounds/select_007.ogg",
+  "interface-sounds/select_008.ogg"
+ ],
+ "switch": [
+  "interface-sounds/switch_001.ogg",
+  "interface-sounds/switch_002.ogg",
+  "interface-sounds/switch_003.ogg",
+  "interface-sounds/switch_004.ogg",
+  "interface-sounds/switch_005.ogg",
+  "interface-sounds/switch_006.ogg",
+  "interface-sounds/switch_007.ogg",
+  "ui-audio/switch1.ogg",
+  "ui-audio/switch10.ogg",
+  "ui-audio/switch11.ogg",
+  "ui-audio/switch12.ogg",
+  "ui-audio/switch13.ogg",
+  "ui-audio/switch14.ogg",
+  "ui-audio/switch15.ogg",
+  "ui-audio/switch16.ogg",
+  "ui-audio/switch17.ogg",
+  "ui-audio/switch18.ogg",
+  "ui-audio/switch19.ogg",
+  "ui-audio/switch2.ogg",
+  "ui-audio/switch20.ogg",
+  "ui-audio/switch21.ogg",
+  "ui-audio/switch22.ogg",
+  "ui-audio/switch23.ogg",
+  "ui-audio/switch24.ogg",
+  "ui-audio/switch25.ogg",
+  "ui-audio/switch26.ogg",
+  "ui-audio/switch27.ogg",
+  "ui-audio/switch28.ogg",
+  "ui-audio/switch29.ogg",
+  "ui-audio/switch3.ogg",
+  "ui-audio/switch30.ogg",
+  "ui-audio/switch31.ogg",
+  "ui-audio/switch32.ogg",
+  "ui-audio/switch33.ogg",
+  "ui-audio/switch34.ogg",
+  "ui-audio/switch35.ogg",
+  "ui-audio/switch36.ogg",
+  "ui-audio/switch37.ogg",
+  "ui-audio/switch38.ogg",
+  "ui-audio/switch4.ogg",
+  "ui-audio/switch5.ogg",
+  "ui-audio/switch6.ogg",
+  "ui-audio/switch7.ogg",
+  "ui-audio/switch8.ogg",
+  "ui-audio/switch9.ogg"
+ ],
+ "tick": [
+  "interface-sounds/tick_001.ogg",
+  "interface-sounds/tick_002.ogg",
+  "interface-sounds/tick_004.ogg"
+ ],
+ "toggle": [
+  "interface-sounds/toggle_001.ogg",
+  "interface-sounds/toggle_002.ogg",
+  "interface-sounds/toggle_003.ogg",
+  "interface-sounds/toggle_004.ogg"
+ ],
+ "jingles_HIT": [
+  "music-jingles/jingles_HIT00.ogg",
+  "music-jingles/jingles_HIT01.ogg",
+  "music-jingles/jingles_HIT02.ogg",
+  "music-jingles/jingles_HIT03.ogg",
+  "music-jingles/jingles_HIT04.ogg",
+  "music-jingles/jingles_HIT05.ogg",
+  "music-jingles/jingles_HIT06.ogg",
+  "music-jingles/jingles_HIT07.ogg",
+  "music-jingles/jingles_HIT08.ogg",
+  "music-jingles/jingles_HIT09.ogg",
+  "music-jingles/jingles_HIT10.ogg",
+  "music-jingles/jingles_HIT11.ogg",
+  "music-jingles/jingles_HIT12.ogg",
+  "music-jingles/jingles_HIT13.ogg",
+  "music-jingles/jingles_HIT14.ogg",
+  "music-jingles/jingles_HIT15.ogg",
+  "music-jingles/jingles_HIT16.ogg"
+ ],
+ "jingles_NES": [
+  "music-jingles/jingles_NES00.ogg",
+  "music-jingles/jingles_NES01.ogg",
+  "music-jingles/jingles_NES02.ogg",
+  "music-jingles/jingles_NES03.ogg",
+  "music-jingles/jingles_NES04.ogg",
+  "music-jingles/jingles_NES05.ogg",
+  "music-jingles/jingles_NES06.ogg",
+  "music-jingles/jingles_NES07.ogg",
+  "music-jingles/jingles_NES08.ogg",
+  "music-jingles/jingles_NES09.ogg",
+  "music-jingles/jingles_NES10.ogg",
+  "music-jingles/jingles_NES11.ogg",
+  "music-jingles/jingles_NES12.ogg",
+  "music-jingles/jingles_NES13.ogg",
+  "music-jingles/jingles_NES14.ogg",
+  "music-jingles/jingles_NES15.ogg",
+  "music-jingles/jingles_NES16.ogg"
+ ],
+ "jingles_PIZZI": [
+  "music-jingles/jingles_PIZZI00.ogg",
+  "music-jingles/jingles_PIZZI01.ogg",
+  "music-jingles/jingles_PIZZI02.ogg",
+  "music-jingles/jingles_PIZZI03.ogg",
+  "music-jingles/jingles_PIZZI04.ogg",
+  "music-jingles/jingles_PIZZI05.ogg",
+  "music-jingles/jingles_PIZZI06.ogg",
+  "music-jingles/jingles_PIZZI07.ogg",
+  "music-jingles/jingles_PIZZI08.ogg",
+  "music-jingles/jingles_PIZZI09.ogg",
+  "music-jingles/jingles_PIZZI10.ogg",
+  "music-jingles/jingles_PIZZI11.ogg",
+  "music-jingles/jingles_PIZZI12.ogg",
+  "music-jingles/jingles_PIZZI13.ogg",
+  "music-jingles/jingles_PIZZI14.ogg",
+  "music-jingles/jingles_PIZZI15.ogg",
+  "music-jingles/jingles_PIZZI16.ogg"
+ ],
+ "jingles_SAX": [
+  "music-jingles/jingles_SAX00.ogg",
+  "music-jingles/jingles_SAX01.ogg",
+  "music-jingles/jingles_SAX02.ogg",
+  "music-jingles/jingles_SAX03.ogg",
+  "music-jingles/jingles_SAX04.ogg",
+  "music-jingles/jingles_SAX05.ogg",
+  "music-jingles/jingles_SAX06.ogg",
+  "music-jingles/jingles_SAX07.ogg",
+  "music-jingles/jingles_SAX08.ogg",
+  "music-jingles/jingles_SAX09.ogg",
+  "music-jingles/jingles_SAX10.ogg",
+  "music-jingles/jingles_SAX11.ogg",
+  "music-jingles/jingles_SAX12.ogg",
+  "music-jingles/jingles_SAX13.ogg",
+  "music-jingles/jingles_SAX14.ogg",
+  "music-jingles/jingles_SAX15.ogg",
+  "music-jingles/jingles_SAX16.ogg"
+ ],
+ "jingles_STEEL": [
+  "music-jingles/jingles_STEEL00.ogg",
+  "music-jingles/jingles_STEEL01.ogg",
+  "music-jingles/jingles_STEEL02.ogg",
+  "music-jingles/jingles_STEEL03.ogg",
+  "music-jingles/jingles_STEEL04.ogg",
+  "music-jingles/jingles_STEEL05.ogg",
+  "music-jingles/jingles_STEEL06.ogg",
+  "music-jingles/jingles_STEEL07.ogg",
+  "music-jingles/jingles_STEEL08.ogg",
+  "music-jingles/jingles_STEEL09.ogg",
+  "music-jingles/jingles_STEEL10.ogg",
+  "music-jingles/jingles_STEEL11.ogg",
+  "music-jingles/jingles_STEEL12.ogg",
+  "music-jingles/jingles_STEEL13.ogg",
+  "music-jingles/jingles_STEEL14.ogg",
+  "music-jingles/jingles_STEEL15.ogg",
+  "music-jingles/jingles_STEEL16.ogg"
+ ],
+ "beltHandle": [
+  "rpg-audio/beltHandle1.ogg",
+  "rpg-audio/beltHandle2.ogg"
+ ],
+ "bookClose": [
+  "rpg-audio/bookClose.ogg"
+ ],
+ "bookFlip": [
+  "rpg-audio/bookFlip1.ogg",
+  "rpg-audio/bookFlip2.ogg",
+  "rpg-audio/bookFlip3.ogg"
+ ],
+ "bookOpen": [
+  "rpg-audio/bookOpen.ogg"
+ ],
+ "bookPlace": [
+  "rpg-audio/bookPlace1.ogg",
+  "rpg-audio/bookPlace2.ogg",
+  "rpg-audio/bookPlace3.ogg"
+ ],
+ "chop": [
+  "rpg-audio/chop.ogg"
+ ],
+ "cloth": [
+  "rpg-audio/cloth1.ogg",
+  "rpg-audio/cloth2.ogg",
+  "rpg-audio/cloth3.ogg",
+  "rpg-audio/cloth4.ogg"
+ ],
+ "clothBelt": [
+  "rpg-audio/clothBelt.ogg",
+  "rpg-audio/clothBelt2.ogg"
+ ],
+ "creak": [
+  "rpg-audio/creak1.ogg",
+  "rpg-audio/creak2.ogg",
+  "rpg-audio/creak3.ogg"
+ ],
+ "doorClose": [
+  "rpg-audio/doorClose_1.ogg",
+  "rpg-audio/doorClose_2.ogg",
+  "rpg-audio/doorClose_3.ogg",
+  "rpg-audio/doorClose_4.ogg",
+  "sci-fi-sounds/doorClose_000.ogg",
+  "sci-fi-sounds/doorClose_001.ogg",
+  "sci-fi-sounds/doorClose_002.ogg"
+ ],
+ "doorOpen": [
+  "rpg-audio/doorOpen_1.ogg",
+  "rpg-audio/doorOpen_2.ogg",
+  "sci-fi-sounds/doorOpen_000.ogg",
+  "sci-fi-sounds/doorOpen_001.ogg",
+  "sci-fi-sounds/doorOpen_002.ogg"
+ ],
+ "drawKnife": [
+  "rpg-audio/drawKnife1.ogg",
+  "rpg-audio/drawKnife2.ogg",
+  "rpg-audio/drawKnife3.ogg"
+ ],
+ "dropLeather": [
+  "rpg-audio/dropLeather.ogg"
+ ],
+ "footstep": [
+  "rpg-audio/footstep00.ogg",
+  "rpg-audio/footstep01.ogg",
+  "rpg-audio/footstep02.ogg",
+  "rpg-audio/footstep03.ogg",
+  "rpg-audio/footstep04.ogg",
+  "rpg-audio/footstep05.ogg",
+  "rpg-audio/footstep06.ogg",
+  "rpg-audio/footstep07.ogg",
+  "rpg-audio/footstep08.ogg",
+  "rpg-audio/footstep09.ogg"
+ ],
+ "handleCoins": [
+  "rpg-audio/handleCoins.ogg",
+  "rpg-audio/handleCoins2.ogg"
+ ],
+ "handleSmallLeather": [
+  "rpg-audio/handleSmallLeather.ogg",
+  "rpg-audio/handleSmallLeather2.ogg"
+ ],
+ "knifeSlice": [
+  "rpg-audio/knifeSlice.ogg",
+  "rpg-audio/knifeSlice2.ogg"
+ ],
+ "metalClick": [
+  "rpg-audio/metalClick.ogg"
+ ],
+ "metalLatch": [
+  "rpg-audio/metalLatch.ogg"
+ ],
+ "metalPot": [
+  "rpg-audio/metalPot1.ogg",
+  "rpg-audio/metalPot2.ogg",
+  "rpg-audio/metalPot3.ogg"
+ ],
+ "computerNoise": [
+  "sci-fi-sounds/computerNoise_000.ogg",
+  "sci-fi-sounds/computerNoise_001.ogg",
+  "sci-fi-sounds/computerNoise_002.ogg",
+  "sci-fi-sounds/computerNoise_003.ogg"
+ ],
+ "engineCircular": [
+  "sci-fi-sounds/engineCircular_000.ogg",
+  "sci-fi-sounds/engineCircular_001.ogg",
+  "sci-fi-sounds/engineCircular_002.ogg",
+  "sci-fi-sounds/engineCircular_003.ogg",
+  "sci-fi-sounds/engineCircular_004.ogg"
+ ],
+ "explosionCrunch": [
+  "sci-fi-sounds/explosionCrunch_000.ogg",
+  "sci-fi-sounds/explosionCrunch_001.ogg",
+  "sci-fi-sounds/explosionCrunch_002.ogg",
+  "sci-fi-sounds/explosionCrunch_003.ogg",
+  "sci-fi-sounds/explosionCrunch_004.ogg"
+ ],
+ "forceField": [
+  "sci-fi-sounds/forceField_000.ogg",
+  "sci-fi-sounds/forceField_001.ogg",
+  "sci-fi-sounds/forceField_002.ogg",
+  "sci-fi-sounds/forceField_003.ogg",
+  "sci-fi-sounds/forceField_004.ogg"
+ ],
+ "impactMetal": [
+  "sci-fi-sounds/impactMetal_000.ogg",
+  "sci-fi-sounds/impactMetal_001.ogg",
+  "sci-fi-sounds/impactMetal_002.ogg",
+  "sci-fi-sounds/impactMetal_003.ogg",
+  "sci-fi-sounds/impactMetal_004.ogg"
+ ],
+ "laserLarge": [
+  "sci-fi-sounds/laserLarge_000.ogg",
+  "sci-fi-sounds/laserLarge_001.ogg",
+  "sci-fi-sounds/laserLarge_002.ogg",
+  "sci-fi-sounds/laserLarge_003.ogg",
+  "sci-fi-sounds/laserLarge_004.ogg"
+ ],
+ "laserRetro": [
+  "sci-fi-sounds/laserRetro_000.ogg",
+  "sci-fi-sounds/laserRetro_001.ogg",
+  "sci-fi-sounds/laserRetro_002.ogg",
+  "sci-fi-sounds/laserRetro_003.ogg",
+  "sci-fi-sounds/laserRetro_004.ogg"
+ ],
+ "laserSmall": [
+  "sci-fi-sounds/laserSmall_000.ogg",
+  "sci-fi-sounds/laserSmall_001.ogg",
+  "sci-fi-sounds/laserSmall_002.ogg",
+  "sci-fi-sounds/laserSmall_003.ogg",
+  "sci-fi-sounds/laserSmall_004.ogg"
+ ],
+ "lowFrequency_explosion": [
+  "sci-fi-sounds/lowFrequency_explosion_000.ogg",
+  "sci-fi-sounds/lowFrequency_explosion_001.ogg"
+ ],
+ "slime": [
+  "sci-fi-sounds/slime_000.ogg",
+  "sci-fi-sounds/slime_001.ogg"
+ ],
+ "spaceEngineLarge": [
+  "sci-fi-sounds/spaceEngineLarge_000.ogg",
+  "sci-fi-sounds/spaceEngineLarge_001.ogg",
+  "sci-fi-sounds/spaceEngineLarge_002.ogg",
+  "sci-fi-sounds/spaceEngineLarge_003.ogg",
+  "sci-fi-sounds/spaceEngineLarge_004.ogg"
+ ],
+ "spaceEngineLow": [
+  "sci-fi-sounds/spaceEngineLow_000.ogg",
+  "sci-fi-sounds/spaceEngineLow_001.ogg",
+  "sci-fi-sounds/spaceEngineLow_002.ogg",
+  "sci-fi-sounds/spaceEngineLow_003.ogg",
+  "sci-fi-sounds/spaceEngineLow_004.ogg"
+ ],
+ "spaceEngineSmall": [
+  "sci-fi-sounds/spaceEngineSmall_000.ogg",
+  "sci-fi-sounds/spaceEngineSmall_001.ogg",
+  "sci-fi-sounds/spaceEngineSmall_002.ogg",
+  "sci-fi-sounds/spaceEngineSmall_003.ogg",
+  "sci-fi-sounds/spaceEngineSmall_004.ogg"
+ ],
+ "spaceEngine": [
+  "sci-fi-sounds/spaceEngine_000.ogg",
+  "sci-fi-sounds/spaceEngine_001.ogg",
+  "sci-fi-sounds/spaceEngine_002.ogg",
+  "sci-fi-sounds/spaceEngine_003.ogg"
+ ],
+ "thrusterFire": [
+  "sci-fi-sounds/thrusterFire_000.ogg",
+  "sci-fi-sounds/thrusterFire_001.ogg",
+  "sci-fi-sounds/thrusterFire_002.ogg",
+  "sci-fi-sounds/thrusterFire_003.ogg",
+  "sci-fi-sounds/thrusterFire_004.ogg"
+ ],
+ "mouseclick": [
+  "ui-audio/mouseclick1.ogg"
+ ],
+ "mouserelease": [
+  "ui-audio/mouserelease1.ogg"
+ ],
+ "rollover": [
+  "ui-audio/rollover1.ogg",
+  "ui-audio/rollover2.ogg",
+  "ui-audio/rollover3.ogg",
+  "ui-audio/rollover4.ogg",
+  "ui-audio/rollover5.ogg",
+  "ui-audio/rollover6.ogg"
+ ],
+ "Male": [
+  "voiceover-pack/Male-1.ogg",
+  "voiceover-pack/Male-10.ogg",
+  "voiceover-pack/Male-2.ogg",
+  "voiceover-pack/Male-3.ogg",
+  "voiceover-pack/Male-4.ogg",
+  "voiceover-pack/Male-5.ogg",
+  "voiceover-pack/Male-6.ogg",
+  "voiceover-pack/Male-7.ogg",
+  "voiceover-pack/Male-8.ogg",
+  "voiceover-pack/Male-9.ogg"
+ ],
+ "Male-congratulations": [
+  "voiceover-pack/Male-congratulations.ogg"
+ ],
+ "Male-correct": [
+  "voiceover-pack/Male-correct.ogg"
+ ],
+ "Male-final_round": [
+  "voiceover-pack/Male-final_round.ogg"
+ ],
+ "Male-game_over": [
+  "voiceover-pack/Male-game_over.ogg"
+ ],
+ "Male-go": [
+  "voiceover-pack/Male-go.ogg"
+ ],
+ "Male-hurry_up": [
+  "voiceover-pack/Male-hurry_up.ogg"
+ ],
+ "Male-its_a_tie": [
+  "voiceover-pack/Male-its_a_tie.ogg"
+ ],
+ "Male-level": [
+  "voiceover-pack/Male-level.ogg"
+ ],
+ "Male-level_up": [
+  "voiceover-pack/Male-level_up.ogg"
+ ],
+ "Male-mission_completed": [
+  "voiceover-pack/Male-mission_completed.ogg"
+ ],
+ "Male-mission_failed": [
+  "voiceover-pack/Male-mission_failed.ogg"
+ ],
+ "Male-new_highscore": [
+  "voiceover-pack/Male-new_highscore.ogg"
+ ],
+ "Male-objective_achieved": [
+  "voiceover-pack/Male-objective_achieved.ogg"
+ ],
+ "Male-power_up": [
+  "voiceover-pack/Male-power_up.ogg"
+ ],
+ "Male-ready": [
+  "voiceover-pack/Male-ready.ogg"
+ ],
+ "Male-round": [
+  "voiceover-pack/Male-round.ogg"
+ ],
+ "Male-set": [
+  "voiceover-pack/Male-set.ogg"
+ ],
+ "Male-time_over": [
+  "voiceover-pack/Male-time_over.ogg"
+ ],
+ "Male-war_call_for_backup": [
+  "voiceover-pack/Male-war_call_for_backup.ogg"
+ ],
+ "Male-war_cover_me": [
+  "voiceover-pack/Male-war_cover_me.ogg"
+ ],
+ "Male-war_fire_in_the_hole": [
+  "voiceover-pack/Male-war_fire_in_the_hole.ogg"
+ ],
+ "Male-war_get_down": [
+  "voiceover-pack/Male-war_get_down.ogg"
+ ],
+ "Male-war_go_go_go": [
+  "voiceover-pack/Male-war_go_go_go.ogg"
+ ],
+ "Male-war_look_out": [
+  "voiceover-pack/Male-war_look_out.ogg"
+ ],
+ "Male-war_medic": [
+  "voiceover-pack/Male-war_medic.ogg"
+ ],
+ "Male-war_reloading": [
+  "voiceover-pack/Male-war_reloading.ogg"
+ ],
+ "Male-war_rpg": [
+  "voiceover-pack/Male-war_rpg.ogg"
+ ],
+ "Male-war_sniper": [
+  "voiceover-pack/Male-war_sniper.ogg"
+ ],
+ "Male-war_target_destroyed": [
+  "voiceover-pack/Male-war_target_destroyed.ogg"
+ ],
+ "Male-war_target_engaged": [
+  "voiceover-pack/Male-war_target_engaged.ogg"
+ ],
+ "Male-war_watch_my_back": [
+  "voiceover-pack/Male-war_watch_my_back.ogg"
+ ],
+ "Male-wrong": [
+  "voiceover-pack/Male-wrong.ogg"
+ ],
+ "Male-you_lose": [
+  "voiceover-pack/Male-you_lose.ogg"
+ ],
+ "Male-you_win": [
+  "voiceover-pack/Male-you_win.ogg"
+ ],
+ "congratulations": [
+  "voiceover-pack/congratulations.ogg"
+ ],
+ "correct": [
+  "voiceover-pack/correct.ogg"
+ ],
+ "final_round": [
+  "voiceover-pack/final_round.ogg",
+  "voiceover-pack-fighter/final_round.ogg"
+ ],
+ "game_over": [
+  "voiceover-pack/game_over.ogg",
+  "voiceover-pack-fighter/game_over.ogg"
+ ],
+ "go": [
+  "voiceover-pack/go.ogg"
+ ],
+ "hold": [
+  "voiceover-pack/hold.ogg"
+ ],
+ "hurry_up": [
+  "voiceover-pack/hurry_up.ogg"
+ ],
+ "its_a_tie": [
+  "voiceover-pack/its_a_tie.ogg"
+ ],
+ "level": [
+  "voiceover-pack/level.ogg"
+ ],
+ "level_up": [
+  "voiceover-pack/level_up.ogg"
+ ],
+ "mission_completed": [
+  "voiceover-pack/mission_completed.ogg"
+ ],
+ "mission_failed": [
+  "voiceover-pack/mission_failed.ogg"
+ ],
+ "new_highscore": [
+  "voiceover-pack/new_highscore.ogg"
+ ],
+ "objective_achieved": [
+  "voiceover-pack/objective_achieved.ogg"
+ ],
+ "power_up": [
+  "voiceover-pack/power_up.ogg"
+ ],
+ "ready": [
+  "voiceover-pack/ready.ogg",
+  "voiceover-pack-fighter/ready.ogg"
+ ],
+ "round": [
+  "voiceover-pack/round.ogg",
+  "voiceover-pack-fighter/round_1.ogg",
+  "voiceover-pack-fighter/round_2.ogg",
+  "voiceover-pack-fighter/round_3.ogg",
+  "voiceover-pack-fighter/round_4.ogg",
+  "voiceover-pack-fighter/round_5.ogg"
+ ],
+ "set": [
+  "voiceover-pack/set.ogg"
+ ],
+ "time_over": [
+  "voiceover-pack/time_over.ogg"
+ ],
+ "war_call_for_backup": [
+  "voiceover-pack/war_call_for_backup.ogg"
+ ],
+ "war_cover_me": [
+  "voiceover-pack/war_cover_me.ogg"
+ ],
+ "war_fire_in_the_hole": [
+  "voiceover-pack/war_fire_in_the_hole.ogg"
+ ],
+ "war_get_down": [
+  "voiceover-pack/war_get_down.ogg"
+ ],
+ "war_go_go_go": [
+  "voiceover-pack/war_go_go_go.ogg"
+ ],
+ "war_hold": [
+  "voiceover-pack/war_hold.ogg"
+ ],
+ "war_look_out": [
+  "voiceover-pack/war_look_out.ogg"
+ ],
+ "war_medic": [
+  "voiceover-pack/war_medic.ogg"
+ ],
+ "war_reloading": [
+  "voiceover-pack/war_reloading.ogg"
+ ],
+ "war_rpg": [
+  "voiceover-pack/war_rpg.ogg"
+ ],
+ "war_sniper": [
+  "voiceover-pack/war_sniper.ogg"
+ ],
+ "war_suppressing_fire": [
+  "voiceover-pack/war_suppressing_fire.ogg"
+ ],
+ "war_supressing_fire": [
+  "voiceover-pack/war_supressing_fire.ogg"
+ ],
+ "war_target_destroyed": [
+  "voiceover-pack/war_target_destroyed.ogg"
+ ],
+ "war_target_engaged": [
+  "voiceover-pack/war_target_engaged.ogg"
+ ],
+ "war_watch_my_back": [
+  "voiceover-pack/war_watch_my_back.ogg"
+ ],
+ "wrong": [
+  "voiceover-pack/wrong.ogg"
+ ],
+ "you_lose": [
+  "voiceover-pack/you_lose.ogg",
+  "voiceover-pack-fighter/you_lose.ogg"
+ ],
+ "you_win": [
+  "voiceover-pack/you_win.ogg",
+  "voiceover-pack-fighter/you_win.ogg"
+ ],
+ "arcade_mode": [
+  "voiceover-pack-fighter/arcade_mode.ogg"
+ ],
+ "battle_mode": [
+  "voiceover-pack-fighter/battle_mode.ogg"
+ ],
+ "begin": [
+  "voiceover-pack-fighter/begin.ogg"
+ ],
+ "championship_mode": [
+  "voiceover-pack-fighter/championship_mode.ogg"
+ ],
+ "choose_your_character": [
+  "voiceover-pack-fighter/choose_your_character.ogg"
+ ],
+ "combo": [
+  "voiceover-pack-fighter/combo.ogg"
+ ],
+ "combo_breaker": [
+  "voiceover-pack-fighter/combo_breaker.ogg"
+ ],
+ "deathmatch": [
+  "voiceover-pack-fighter/deathmatch.ogg"
+ ],
+ "fight": [
+  "voiceover-pack-fighter/fight.ogg"
+ ],
+ "flawless_victory": [
+  "voiceover-pack-fighter/flawless_victory.ogg"
+ ],
+ "it's_a_tie": [
+  "voiceover-pack-fighter/it's_a_tie.ogg"
+ ],
+ "kill_her": [
+  "voiceover-pack-fighter/kill_her.ogg"
+ ],
+ "kill_him": [
+  "voiceover-pack-fighter/kill_him.ogg"
+ ],
+ "kill_it": [
+  "voiceover-pack-fighter/kill_it.ogg"
+ ],
+ "loser": [
+  "voiceover-pack-fighter/loser.ogg"
+ ],
+ "multi_kill": [
+  "voiceover-pack-fighter/multi_kill.ogg"
+ ],
+ "player": [
+  "voiceover-pack-fighter/player_1.ogg",
+  "voiceover-pack-fighter/player_2.ogg"
+ ],
+ "prepare_yourself": [
+  "voiceover-pack-fighter/prepare_yourself.ogg"
+ ],
+ "story_mode": [
+  "voiceover-pack-fighter/story_mode.ogg"
+ ],
+ "sudden_death": [
+  "voiceover-pack-fighter/sudden_death.ogg"
+ ],
+ "survival_mode": [
+  "voiceover-pack-fighter/survival_mode.ogg"
+ ],
+ "tie": [
+  "voiceover-pack-fighter/tie.ogg"
+ ],
+ "tie_breaker": [
+  "voiceover-pack-fighter/tie_breaker.ogg"
+ ],
+ "time": [
+  "voiceover-pack-fighter/time.ogg"
+ ],
+ "winner": [
+  "voiceover-pack-fighter/winner.ogg"
+ ]
+}

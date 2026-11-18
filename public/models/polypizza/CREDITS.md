@@ -1,0 +1,140 @@
+Models from Poly Pizza (https://poly.pizza), licence CC0 1.0 (public domain).
+- pistol-1.glb: "Pistol" by Quaternius, https://poly.pizza/m/J3i9KDQ3kt, CC0 1.0
+- pistol-2.glb: "Pistol" by Quaternius, https://poly.pizza/m/Jyn9qex4ba, CC0 1.0
+- pistol-3.glb: "Pistol" by Quaternius, https://poly.pizza/m/52kQzphmeF, CC0 1.0
+- revolver.glb: "Revolver" by CreativeTrio, https://poly.pizza/m/wFQbxzzgqU, CC0 1.0
+- pistol-west.glb: "Pistol West" by Pichuliru, https://poly.pizza/m/r8RjoAwN5A, CC0 1.0
+- sword-1.glb: "Sword" by Quaternius, https://poly.pizza/m/9lLmH8Et4K, CC0 1.0
+- sword-2.glb: "Sword" by Quaternius, https://poly.pizza/m/ajOJ2NLz5m, CC0 1.0
+- dagger.glb: "Dagger" by Quaternius, https://poly.pizza/m/kSMpR711Y2, CC0 1.0
+- katana.glb: "Katana" by Pichuliru, https://poly.pizza/m/15A7InejC7, CC0 1.0
+- ray-gun.glb: "Ray Gun" by Quaternius, https://poly.pizza/m/DIcib0mihf, CC0 1.0
+- scifi-pistol.glb: "Scifi Pistol" by Quaternius, https://poly.pizza/m/U0Q1BrKL1y, CC0 1.0
+- pickaxe-UHZH2OoWCS.glb: "Pickaxe" by Kenney, https://poly.pizza/m/UHZH2OoWCS, CC0 1.0
+- dragon-VBvzjFIYws.glb: "Dragon" by Quaternius, https://poly.pizza/m/VBvzjFIYws, CC0 1.0
+- dragon-evolved-LlwD0QNUPj.glb: "Dragon Evolved" by Quaternius, https://poly.pizza/m/LlwD0QNUPj, CC0 1.0
+- dragon-3rUm1cN3yp.glb: "Dragon" by Quaternius, https://poly.pizza/m/3rUm1cN3yp, CC0 1.0
+- cat-qKICY6xla2.glb: "Cat" by Quaternius, https://poly.pizza/m/qKICY6xla2, CC0 1.0
+- sports-car-1mkmFkAz5v.glb: "Sports Car" by Quaternius, https://poly.pizza/m/1mkmFkAz5v, CC0 1.0
+- police-car-BwwnUrWGmV.glb: "Police Car" by Quaternius, https://poly.pizza/m/BwwnUrWGmV, CC0 1.0
+- sports-car-Gzj704DXdr.glb: "Sports Car" by Quaternius, https://poly.pizza/m/Gzj704DXdr, CC0 1.0
+- zombie-VlXjG0N8Eg.glb: "Zombie" by Quaternius, https://poly.pizza/m/VlXjG0N8Eg, CC0 1.0
+- zombie-JoBvxIUpZP.glb: "Zombie" by Quaternius, https://poly.pizza/m/JoBvxIUpZP, CC0 1.0
+- skeleton-DM4QScSmbS.glb: "Skeleton" by Quaternius, https://poly.pizza/m/DM4QScSmbS, CC0 1.0
+- guitar-5Fp8gpomrb.glb: "Guitar" by Quaternius, https://poly.pizza/m/5Fp8gpomrb, CC0 1.0
+- guitar-character-RRu7S6WzOC.glb: "Guitar Character" by Polygonal Mind, https://poly.pizza/m/RRu7S6WzOC, CC0 1.0
+- lute-q3IXa6QH1C.glb: "Lute" by Quaternius, https://poly.pizza/m/q3IXa6QH1C, CC0 1.0
+- computer-mouse-V2Ebx3pvo4.glb: "Computer Mouse" by CreativeTrio, https://poly.pizza/m/V2Ebx3pvo4, CC0 1.0
+- astronaut-OgeSH89Nmx.glb: "Astronaut" by Quaternius, https://poly.pizza/m/OgeSH89Nmx, CC0 1.0
+- bunny-irZjWFARyl.glb: "Bunny" by Quaternius, https://poly.pizza/m/irZjWFARyl, CC0 1.0
+- cat-2f54vbV0In.glb: "Cat" by Quaternius, https://poly.pizza/m/2f54vbV0In, CC0 1.0
+- dog-2kUk0QqpCg.glb: "Dog" by Quaternius, https://poly.pizza/m/2kUk0QqpCg, CC0 1.0
+- manta-ray-yzD8b7ZHZm.glb: "Manta ray" by Quaternius, https://poly.pizza/m/yzD8b7ZHZm, CC0 1.0
+- fish-bJs4f0SFlO.glb: "Fish" by Kenney, https://poly.pizza/m/bJs4f0SFlO, CC0 1.0
+- coral-reef-set-74GL45Fvdh.glb: "Coral Reef Set" by MiniPoly, https://poly.pizza/m/74GL45Fvdh, CC0 1.0
+- fish-BEcU9rjiAq.glb: "Fish" by Quaternius, https://poly.pizza/m/BEcU9rjiAq, CC0 1.0
+- fish-XWl86YFtpF.glb: "Fish" by Quaternius, https://poly.pizza/m/XWl86YFtpF, CC0 1.0
+- clownfish-769fHo3eEB.glb: "Clownfish" by Quaternius, https://poly.pizza/m/769fHo3eEB, CC0 1.0
+- trees-etFGNvsiFv.glb: "Trees" by Quaternius, https://poly.pizza/m/etFGNvsiFv, CC0 1.0
+- pine-trees-oYtDty0fR6.glb: "Pine Trees" by Quaternius, https://poly.pizza/m/oYtDty0fR6, CC0 1.0
+- pine-79gmlLnweB.glb: "Pine" by Quaternius, https://poly.pizza/m/79gmlLnweB, CC0 1.0
+- basket-ball-and-hoop-i3LLacyQP4.glb: "Basket ball and hoop" by Armory_3D, https://poly.pizza/m/i3LLacyQP4, CC0 1.0
+- sword-character-m2QKOPz2sX.glb: "Sword Character" by Polygonal Mind, https://poly.pizza/m/m2QKOPz2sX, CC0 1.0
+- small-microchip-gXTsPAcoxL.glb: "Small Microchip" by iPoly3D, https://poly.pizza/m/gXTsPAcoxL, CC0 1.0
+- armabee-42djT5zJnx.glb: "Armabee" by Quaternius, https://poly.pizza/m/42djT5zJnx, CC0 1.0
+- butterfly-fish-s2MkBeSzGy.glb: "Butterfly Fish" by Quaternius, https://poly.pizza/m/s2MkBeSzGy, CC0 1.0
+- ladybird-3tCnJC9UYA.glb: "Ladybird" by Exceptional_3D, https://poly.pizza/m/3tCnJC9UYA, CC0 1.0
+- snowman-UBldLFdI7l.glb: "Snowman" by Polygonal Mind, https://poly.pizza/m/UBldLFdI7l, CC0 1.0
+- pine-tree-with-snow-17vQv2X5rh.glb: "Pine Tree with Snow" by Quaternius, https://poly.pizza/m/17vQv2X5rh, CC0 1.0
+- cloud-character-DbagQqQEEb.glb: "Cloud Character" by Polygonal Mind, https://poly.pizza/m/DbagQqQEEb, CC0 1.0
+- bird-gYYC0gYMnw.glb: "Bird" by Quaternius, https://poly.pizza/m/gYYC0gYMnw, CC0 1.0
+- bat-hNO9XvjlKa.glb: "Bat" by Quaternius, https://poly.pizza/m/hNO9XvjlKa, CC0 1.0
+- spaceship-uCeLfsdmNP.glb: "Spaceship" by Quaternius, https://poly.pizza/m/uCeLfsdmNP, CC0 1.0
+- spaceship-xNbtFQwirO.glb: "Spaceship" by Quaternius, https://poly.pizza/m/xNbtFQwirO, CC0 1.0
+- space-craft-speeder-mlQBUQRUpM.glb: "Space Craft Speeder" by Kenney, https://poly.pizza/m/mlQBUQRUpM, CC0 1.0
+- sci-fi-engine-xkgtgFIHIJ.glb: "Sci Fi Engine" by Dipper98, https://poly.pizza/m/xkgtgFIHIJ, CC0 1.0
+- locomotive-front-WY84FHug9s.glb: "Locomotive Front" by Quaternius, https://poly.pizza/m/WY84FHug9s, CC0 1.0
+- mill-89dsFYAoX1.glb: "Mill" by Quaternius, https://poly.pizza/m/89dsFYAoX1, CC0 1.0
+- cloud-KdFNOVn1Gf.glb: "Cloud" by Quaternius, https://poly.pizza/m/KdFNOVn1Gf, CC0 1.0
+- clouds-gEm9CjnS9l.glb: "Clouds" by hat_my_guy, https://poly.pizza/m/gEm9CjnS9l, CC0 1.0
+- cloud-pjiBiLJwAl.glb: "Cloud" by Quaternius, https://poly.pizza/m/pjiBiLJwAl, CC0 1.0
+- castle-kit-2pA966ztJJX.glb: "Castle Kit" by Kenney, https://poly.pizza/m/2pA966ztJJX, CC0 1.0
+- castle-4360GdbxRe.glb: "Castle" by CreativeTrio, https://poly.pizza/m/4360GdbxRe, CC0 1.0
+- castle-opTOmcN3o9.glb: "Castle" by Quaternius, https://poly.pizza/m/opTOmcN3o9, CC0 1.0
+- windmill-WUbU1Nct2W.glb: "Windmill" by Quaternius, https://poly.pizza/m/WUbU1Nct2W, CC0 1.0
+- grandfathers-clock-09YKIkFZnA.glb: "Grandfathers Clock" by CreativeTrio, https://poly.pizza/m/09YKIkFZnA, CC0 1.0
+- alarm-clock-y5f363OS9C.glb: "Alarm Clock" by CreativeTrio, https://poly.pizza/m/y5f363OS9C, CC0 1.0
+- helicopter-EQJ2MECUbx.glb: "Helicopter" by kazuma, https://poly.pizza/m/EQJ2MECUbx, CC0 1.0
+- drill-8uBbH7Dvmb.glb: "Drill" by Kay Lousberg, https://poly.pizza/m/8uBbH7Dvmb, CC0 1.0
+- sheep-C39AUXUUes.glb: "Sheep" by Quaternius, https://poly.pizza/m/C39AUXUUes, CC0 1.0
+- sheep-rgJXF570ZK.glb: "Sheep" by Quaternius, https://poly.pizza/m/rgJXF570ZK, CC0 1.0
+- cow-26zM1outCr.glb: "Cow" by Quaternius, https://poly.pizza/m/26zM1outCr, CC0 1.0
+- small-table-rAEBvfb1FT.glb: "Small Table" by Quaternius, https://poly.pizza/m/rAEBvfb1FT, CC0 1.0
+- table-round-small-oEArSZykyi.glb: "Table Round Small" by Quaternius, https://poly.pizza/m/oEArSZykyi, CC0 1.0
+- table-yYEEJzKxb4.glb: "Table" by Quaternius, https://poly.pizza/m/yYEEJzKxb4, CC0 1.0
+- chest-O72u4Drp8k.glb: "Chest" by Quaternius, https://poly.pizza/m/O72u4Drp8k, CC0 1.0
+- chest-IbCTSkyWDT.glb: "Chest" by Quaternius, https://poly.pizza/m/IbCTSkyWDT, CC0 1.0
+- chest-eEcIqgJzJ1.glb: "Chest" by Quaternius, https://poly.pizza/m/eEcIqgJzJ1, CC0 1.0
+- wall-corkboard-U8yQZ9l0HZ.glb: "Wall Corkboard" by CreativeTrio, https://poly.pizza/m/U8yQZ9l0HZ, CC0 1.0
+- paper-4qDtAbPYnT.glb: "Paper" by Quaternius, https://poly.pizza/m/4qDtAbPYnT, CC0 1.0
+- ad-board-8G0qJ84VDS.glb: "Ad Board" by Uykucukoala, https://poly.pizza/m/8G0qJ84VDS, CC0 1.0
+- houseplant-bfLOqIV5uP.glb: "Houseplant" by Quaternius, https://poly.pizza/m/bfLOqIV5uP, CC0 1.0
+- houseplant-VtJh4Irl4w.glb: "Houseplant" by Quaternius, https://poly.pizza/m/VtJh4Irl4w, CC0 1.0
+- potted-plant-GJ3Bm5FDE4.glb: "Potted Plant" by CreativeTrio, https://poly.pizza/m/GJ3Bm5FDE4, CC0 1.0
+- window-small-n88WAcjzTv.glb: "Window Small" by Quaternius, https://poly.pizza/m/n88WAcjzTv, CC0 1.0
+- window-large-EipzkrS9nG.glb: "Window Large" by Quaternius, https://poly.pizza/m/EipzkrS9nG, CC0 1.0
+- window-round-WROtq6kA7t.glb: "Window Round" by Quaternius, https://poly.pizza/m/WROtq6kA7t, CC0 1.0
+- large-building-yKo7F36Qk2.glb: "Large Building" by Kenney, https://poly.pizza/m/yKo7F36Qk2, CC0 1.0
+- building-bbH2Bg73qM.glb: "Building" by Kay Lousberg, https://poly.pizza/m/bbH2Bg73qM, CC0 1.0
+- large-building-sxXonOmtct.glb: "Large Building" by Kenney, https://poly.pizza/m/sxXonOmtct, CC0 1.0
+- grave-Yg8Yz6T8A6.glb: "Grave" by Kay Lousberg, https://poly.pizza/m/Yg8Yz6T8A6, CC0 1.0
+- cpu-oF0cAyddAI.glb: "CPU" by iPoly3D, https://poly.pizza/m/oF0cAyddAI, CC0 1.0
+- computer-7KNoiQlSxi.glb: "Computer" by CreativeTrio, https://poly.pizza/m/7KNoiQlSxi, CC0 1.0
+- sword-9lLmH8Et4K.glb: "Sword" by Quaternius, https://poly.pizza/m/9lLmH8Et4K, CC0 1.0
+- sword-ajOJ2NLz5m.glb: "Sword" by Quaternius, https://poly.pizza/m/ajOJ2NLz5m, CC0 1.0
+- dagger-kSMpR711Y2.glb: "Dagger" by Quaternius, https://poly.pizza/m/kSMpR711Y2, CC0 1.0
+- planet-18Uxrb2dIc.glb: "Planet" by Quaternius, https://poly.pizza/m/18Uxrb2dIc, CC0 1.0
+- planet-9g1aIbfR9Y.glb: "Planet" by Quaternius, https://poly.pizza/m/9g1aIbfR9Y, CC0 1.0
+- planet-IVnmauIgWX.glb: "Planet" by Quaternius, https://poly.pizza/m/IVnmauIgWX, CC0 1.0
+- t-rex-UYtneO5FpF.glb: "T-Rex" by Quaternius, https://poly.pizza/m/UYtneO5FpF, CC0 1.0
+- velociraptor-cnlGH2UcDd.glb: "Velociraptor" by Quaternius, https://poly.pizza/m/cnlGH2UcDd, CC0 1.0
+- triceratops-IGvrUqGrRM.glb: "Triceratops" by Quaternius, https://poly.pizza/m/IGvrUqGrRM, CC0 1.0
+- chair-iMNqRzPwwe.glb: "Chair" by Quaternius, https://poly.pizza/m/iMNqRzPwwe, CC0 1.0
+- chair-zMmKNm8w4a.glb: "Chair" by Quaternius, https://poly.pizza/m/zMmKNm8w4a, CC0 1.0
+- wooden-sign-AsEgIQcQfw.glb: "Wooden Sign" by iPoly3D, https://poly.pizza/m/AsEgIQcQfw, CC0 1.0
+- planet-B7xd3SZq0z.glb: "Planet" by Quaternius, https://poly.pizza/m/B7xd3SZq0z, CC0 1.0
+- planet-hKZtOOMadH.glb: "Planet" by Quaternius, https://poly.pizza/m/hKZtOOMadH, CC0 1.0
+- tall-woman-yXLO5EpFHI.glb: "Tall Woman" by Polygonal Mind, https://poly.pizza/m/yXLO5EpFHI, CC0 1.0
+- mask-woman-aEiJdtjqqc.glb: "Mask Woman" by Polygonal Mind, https://poly.pizza/m/aEiJdtjqqc, CC0 1.0
+- circle-face-character-sl1j3UAU3M.glb: "Circle Face Character" by Polygonal Mind, https://poly.pizza/m/sl1j3UAU3M, CC0 1.0
+- moon-girl-s6POJmqA73.glb: "Moon Girl" by Polygonal Mind, https://poly.pizza/m/s6POJmqA73, CC0 1.0
+- man-HMnuH5geEG.glb: "Man" by Quaternius, https://poly.pizza/m/HMnuH5geEG, CC0 1.0
+- adventurer-5EGWBMpuXq.glb: "Adventurer" by Quaternius, https://poly.pizza/m/5EGWBMpuXq, CC0 1.0
+- animated-human-c3Ibh9I3udk.glb: "Animated Human" by Quaternius, https://poly.pizza/m/c3Ibh9I3udk, CC0 1.0
+- pistol-J3i9KDQ3kt.glb: "Pistol" by Quaternius, https://poly.pizza/m/J3i9KDQ3kt, CC0 1.0
+- pistol-Jyn9qex4ba.glb: "Pistol" by Quaternius, https://poly.pizza/m/Jyn9qex4ba, CC0 1.0
+- pistol-52kQzphmeF.glb: "Pistol" by Quaternius, https://poly.pizza/m/52kQzphmeF, CC0 1.0
+- barrel-open-XgpQjnKmIS.glb: "Barrel Open" by Kenney, https://poly.pizza/m/XgpQjnKmIS, CC0 1.0
+- drumstick-character-JdkTgIzJZX.glb: "Drumstick Character" by Polygonal Mind, https://poly.pizza/m/JdkTgIzJZX, CC0 1.0
+- light-stand-9L6lLUl9sD.glb: "Light Stand" by Quaternius, https://poly.pizza/m/9L6lLUl9sD, CC0 1.0
+- light-desk-uJDWrSJGVH.glb: "Light Desk" by Quaternius, https://poly.pizza/m/uJDWrSJGVH, CC0 1.0
+- lamp-with-shade-1nKtMmYxLT.glb: "Lamp With Shade" by CreativeTrio, https://poly.pizza/m/1nKtMmYxLT, CC0 1.0
+- solar-panel-ah89Y79JdT.glb: "Solar Panel" by Quaternius, https://poly.pizza/m/ah89Y79JdT, CC0 1.0
+- laser-h2P7oQ8RVg.glb: "Laser" by Pichuliru, https://poly.pizza/m/h2P7oQ8RVg, CC0 1.0
+- flashlight-attachment-278wXvuvVh.glb: "Flashlight Attachment" by Pichuliru, https://poly.pizza/m/278wXvuvVh, CC0 1.0
+- lightning-gun-Nl8qWErOw2.glb: "Lightning Gun" by Quaternius, https://poly.pizza/m/Nl8qWErOw2, CC0 1.0
+- chest-open-8kjEXzHC0S.glb: "Chest Open" by Quaternius, https://poly.pizza/m/8kjEXzHC0S, CC0 1.0
+- minecart-ypAEwOy2Cn.glb: "minecart" by Quaternius, https://poly.pizza/m/ypAEwOy2Cn, CC0 1.0
+- sports-car-OyqKvX9xNh.glb: "Sports Car" by Quaternius, https://poly.pizza/m/OyqKvX9xNh, CC0 1.0
+- scifi-gun-kd1jjjCni7.glb: "Scifi Gun" by MiniPoly, https://poly.pizza/m/kd1jjjCni7, CC0 1.0
+- rifle-KjHL5JJrxU.glb: "Rifle" by Quaternius, https://poly.pizza/m/KjHL5JJrxU, CC0 1.0
+- rocket-launcher-GCqUvqleqN.glb: "Rocket Launcher" by Quaternius, https://poly.pizza/m/GCqUvqleqN, CC0 1.0
+- o-qR6fLHpdXM.glb: "O" by Polygonal Mind, https://poly.pizza/m/qR6fLHpdXM, CC0 1.0
+- collectible-gear-1tgrqxAQia.glb: "Collectible Gear" by Quaternius, https://poly.pizza/m/1tgrqxAQia, CC0 1.0
+- stone-block-ZKvgpQwJiY.glb: "Stone Block" by Quaternius, https://poly.pizza/m/ZKvgpQwJiY, CC0 1.0
+- cube-bricks-c4sn88pFjP.glb: "Cube Bricks" by Quaternius, https://poly.pizza/m/c4sn88pFjP, CC0 1.0
+- cube-crate-YAghI6GBls.glb: "Cube Crate" by Quaternius, https://poly.pizza/m/YAghI6GBls, CC0 1.0
+- fantasy-house-BH2XHWUNmF.glb: "Fantasy House" by Quaternius, https://poly.pizza/m/BH2XHWUNmF, CC0 1.0
+- house-roqiHdrpgc.glb: "House" by Quaternius, https://poly.pizza/m/roqiHdrpgc, CC0 1.0
+- cottage-YDGLLT0emC.glb: "Cottage" by CreativeTrio, https://poly.pizza/m/YDGLLT0emC, CC0 1.0
+- scifi-grenade-launcher-r10Gkf9yDs.glb: "Scifi Grenade Launcher" by Quaternius, https://poly.pizza/m/r10Gkf9yDs, CC0 1.0

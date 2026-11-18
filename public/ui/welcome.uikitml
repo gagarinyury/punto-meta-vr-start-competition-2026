@@ -1,0 +1,101 @@
+<!--
+  The way into the room, in Punto's look (start.html).
+  Before XR: a speech bubble over Punto, Punto offers to step into the room.
+  Inside XR it is hidden: the way out is the power button on Punto's bezel
+  (src/helper.ts).
+  Plain divs, so the colours stay the same in both colour schemes.
+  Element ids are read by src/panel.ts.
+-->
+<style>
+  .root {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bubble {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding-top: 26px;
+    padding-bottom: 22px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 36px;
+    background-color: #0c0b0a;
+  }
+
+  .say {
+    color: #f3efe8;
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .say-soft {
+    color: #a29e97;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .enter {
+    flex-direction: row;
+    align-items: center;
+    gap: 14px;
+    margin-top: 4px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 26px;
+    padding-right: 8px;
+    border-radius: 40px;
+    background-color: #62e9f2;
+    cursor: pointer;
+  }
+
+  .enter:hover {
+    background-color: #8af1f7;
+  }
+
+  .enter-label {
+    color: #04191c;
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .enter-icon {
+    width: 52px;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 26px;
+    background-color: #04191c;
+  }
+
+  .tail {
+    width: 34px;
+    height: 34px;
+    margin-top: -22px;
+    border-radius: 6px;
+    background-color: #0c0b0a;
+    transform-rotate-z: 45;
+  }
+</style>
+<div class="root">
+  <div id="xr-button" class="bubble">
+    <div class="card">
+      <span class="say">Hi! I'm Punto.</span>
+      <span class="say-soft">Shall we step into your room?</span>
+      <div class="enter">
+        <span class="enter-label">Enter the room</span>
+        <div class="enter-icon">
+          <RectangleGoggles width="26" height="26" color="#62e9f2"></RectangleGoggles>
+        </div>
+      </div>
+    </div>
+    <div class="tail"></div>
+  </div>
+</div>

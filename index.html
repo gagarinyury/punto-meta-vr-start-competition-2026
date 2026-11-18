@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#0b1418" />
+    <link rel="icon" href="/icons/icon-192.png" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <title>Punto</title>
+    <!-- the front page's heavy parts fetched from the first moment, alongside the code -->
+    <link rel="preload" href="/models/splash/player-talk.glb" as="fetch" crossorigin />
+    <link rel="preload" href="/fonts/fredoka-bold.typeface.json" as="fetch" crossorigin />
+    <link rel="preload" href="/fonts/fredoka-bold.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/fredoka-medium.woff2" as="font" type="font/woff2" crossorigin />
+  </head>
+  <body style="margin: 0; min-height: 100vh; background: radial-gradient(ellipse at 47% 46%, #1a2350 0%, #0b1030 45%, #050818 100%)">
+    <div id="scene-container"></div>
+    <!-- while the game loads: the splash art (Gemini's, the doubles of the front page's models drawn where they will
+         stand); it dissolves into the live 3D front page as soon as that is drawn (src/index.ts) -->
+    <div id="loading-art" style="position: fixed; inset: 0; z-index: 5; pointer-events: none; transition: opacity 0.9s; background: #07090c url(./splash-loading.jpg) center / cover no-repeat"></div>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
+</html>

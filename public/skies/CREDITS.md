@@ -1,0 +1,2 @@
+- aarfontein_dawn_2: "Aarfontein Dawn 2" by Dario Barresi, https://polyhaven.com/a/aarfontein_dawn_2, CC0 1.0
+- meadow_2: "Meadow 2" by Sergej Majboroda, https://polyhaven.com/a/meadow_2, CC0 1.0

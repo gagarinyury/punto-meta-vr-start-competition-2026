@@ -1,0 +1,20 @@
+node_modules
+server/node_modules
+dist
+.git
+.env
+.env.*
+server/.env
+logs
+# the tablet's saves on a laptop (on Cloud Run they live in the bucket); the slash: only this one, src/library is code
+/library
+src/_gen
+src/_view
+src/features/made-*
+artifacts
+research
+public/models/_test
+.iwsdk
+.mcp.json
+*.log
+.gcloudignore

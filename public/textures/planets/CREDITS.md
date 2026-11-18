@@ -1,0 +1,12 @@
+- sun: NASA JPL / SVS (STEREO + SDO, 304 Å); https://svs.gsfc.nasa.gov/vis/a030000/a030300/a030362/euvi_aia304_2012_carrington.tif; public domain
+- moon: NASA's Scientific Visualization Studio (CGI Moon Kit); https://svs.gsfc.nasa.gov/vis/a000000/a004700/a004720/lroc_color_2k.jpg; public domain
+- venus: NASA Visualization Technology Applications and Development; https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/v/Venus_1_12103.glb; public domain
+- earth: NASA Earth Observatory (Blue Marble NG); https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-topography-bathymetry/july/world.topo.bathy.200407.3x5400x2700.jpg; public domain
+- earth-clouds: NASA Earth Observatory (Reto Stöckli); https://assets.science.nasa.gov/content/dam/science/esd/eo/content-feature/bluemarble/images/cloud_combined_2048.jpg; public domain
+- mars: NASA-3D-Resources; https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/Images%20and%20Textures/Mars/Mars.jpg; public domain
+- jupiter: NASA/JPL/Space Science Institute (Cassini); https://assets.science.nasa.gov/content/dam/science/psd/photojournal/pia/pia07/pia07782/PIA07782.jpg; public domain
+- saturn: NASA-3D-Resources; https://raw.githubusercontent.com/nasa/NASA-3D-Resources/master/Images%20and%20Textures/Saturn/Saturn.jpg; public domain
+- saturn-rings: NASA Visualization Technology Applications and Development; https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/s/Saturn_1_120536.glb; public domain
+- uranus: NASA Visualization Technology Applications and Development; https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/u/Uranus_1_51118.glb; public domain
+- neptune: NASA Visualization Technology Applications and Development; https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/n/Neptune_1_49528.glb; public domain
+- mercury: NASA Visualization Technology Applications and Development (MESSENGER); https://assets.science.nasa.gov/content/dam/science/psd/solar/2023/09/m/Mercury_1_4878.glb; public domain — its cube-cross map's equator band stretched to 2:1 (18.11)

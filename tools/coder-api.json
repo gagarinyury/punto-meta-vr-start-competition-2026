@@ -1,0 +1,1078 @@
+{
+ "../live.js": [
+  {
+   "name": "feature",
+   "text": "export function feature(meta: ImportMeta, setup: (world: World) => void | (() => void) | Promise<void | (() => void)>): void;"
+  }
+ ],
+ "../hand.js": [
+  {
+   "name": "holdInHand",
+   "text": "/**\n* Puts a model into the player's hand, for a bare hand and for a controller.\n*/\nexport function holdInHand(world: World, model: Object3D, options?: { side?: 'left' | 'right'; aimed?: boolean; grip?: 'fist' | 'stick'; sight?: boolean; onUse?: (shot: Shot) => void; }): () => void;"
+  },
+  {
+   "name": "strikeWith",
+   "text": "/**\n* Makes a part of a held tool hit physics bodies: a racket face hits a ball,\n* a hammer head knocks a tower over.\n*/\nexport function strikeWith(world: World, part: Object3D, size: [number, number, number]): void;"
+  },
+  {
+   "name": "fitToHand",
+   "text": "/**\n* Turns a downloaded model (any axes, any size, any origin) into one that\n* `holdInHand` understands: handle at the origin along Y, +Y out of the fist,\n* -Z forward. It reads the shape, not the file's axes.\n*/\nexport function fitToHand(model: Object3D, options: { aimed: boolean; length: number; heavyEnd?: boolean; }): Group;"
+  },
+  {
+   "name": "muzzleOf",
+   "text": "/**\n* The end of a held thing's barrel or blade in the room, and (into `direction`) the way it points: the far end along\n* its -Z, at the middle of its front part — a pistol's muzzle, a wand's tip, a bow's arrow rest. For a model built\n* for holdInHand (barrel along -Z) or turned by fitToHand. Read once from its shape, then cheap. Shoot from here,\n* never from the model's own position (that is the handle, in the middle of the hand).\n*/\nexport function muzzleOf(model: Object3D, out: Vector3, direction?: Vector3): Vector3;"
+  },
+  {
+   "name": "onFingerTouch",
+   "text": "/**\n* Every fingertip of both bare hands — thumb to pinky, ten of them — touching a part. `onTouch(finger)` fires when a fingertip comes into `part`,\n* `onRelease(finger)` when it leaves, each finger on its own: chords, a drum roll with all fingers, two hands. With\n* a controller its tip counts as one finger, and so does the end of a held stick or mallet given to strikeWith (drum\n* sticks play the drums). A fast strike that goes right through a thin part between two frames counts too. `part` is a mesh (its geometry's own box, turned with it) or a group\n* (its box in the room); a moving part works. `margin` grows it (metres, default 0.008). Returns: stop.\n*/\nexport function onFingerTouch(world: World, part: Object3D, onTouch: (finger: Finger) => void, onRelease?: (finger: Finger) => void, { margin }?: { margin?: number; }): () => void;"
+  },
+  {
+   "name": "Shot",
+   "text": "/** Where a held thing's shot starts and where it goes (world): the far end of its barrel, along its -Z. */\nexport interface Shot { from: Vector3; direction: Vector3; }"
+  },
+  {
+   "name": "Finger",
+   "text": "/** A fingertip touching: which hand, which finger (`controller` for a controller's tip, `tool` for the striking end\n*  of a held stick, mallet or bat — strikeWith), and where (world). */\nexport interface Finger {\nhand: 'left' | 'right';\nname: 'thumb' | 'index' | 'middle' | 'ring' | 'pinky' | 'controller' | 'tool';\npoint: Vector3;\n/** how fast it came, metres a second: a soft touch ~0.2, a drum strike 1-3 (velocityOf in ../music.js) */\nspeed: number;\n}"
+  }
+ ],
+ "../place.js": [
+  {
+   "name": "inFrontOfPlayer",
+   "text": "/** The spot about `distance` m in front of the player's eyes, a little below them, facing the player. */\nexport function inFrontOfPlayer(world: World, { distance, below }?: { distance?: number; below?: number; }): Place;"
+  },
+  {
+   "name": "wantedPlace",
+   "text": "/**\n* The spot chosen for the thing being made (at once, see askPlace); the spot in front of the player when none was\n* asked for. For the made code.\n*/\nexport function wantedPlace(world: World): Promise<Place>;"
+  },
+  {
+   "name": "surfaceHit",
+   "text": "/** Where this hand's ray meets a real wall, floor or table now; for dragging things along them. */\nexport function surfaceHit(side: 'left' | 'right'): Place | undefined;"
+  },
+  {
+   "name": "roomHit",
+   "text": "/**\n* Raycasts from `origin` along `direction` against the real room's walls, floor, ceiling, tables (`XRPlane`) and\n* furniture (`XRMesh`, via `readFurniture`). Returns the nearest hit within `maxDistance` m (15), or `undefined`.\n*/\nexport function roomHit(world: World, origin: Vector3, direction: Vector3, maxDistance?: number): RoomHit;"
+  },
+  {
+   "name": "Place",
+   "text": "export interface Place {\n/** on the real surface, world space */\npoint: Vector3;\n/** out of the surface into the room; for 'air' toward the player */\nnormal: Vector3;\nsurface: 'wall' | 'floor' | 'table' | 'ceiling' | 'air';\n/** turns a thing's front (+Z) the right way: off a wall into the room; on a floor, table or in the air toward the player */\nfacing: Quaternion;\n/** On a table: the whole table top, metres. `point` is its centre and `facing` is square with its edges, so\n*  `width` runs along the thing's x (left-right as the player sees it) and `depth` along its z (towards the player).\n*  \"As big as the table\": build to these. */\nsize?: { width: number; depth: number; };\n}"
+  },
+  {
+   "name": "RoomHit",
+   "text": "/** Result of raycasting against the real room (`roomHit`). */\nexport interface RoomHit {\n/** World hit point on the real wall, floor, ceiling, table or furniture. */\npoint: Vector3;\n/** Outward surface normal into the room. */\nnormal: Vector3;\nsurface: 'wall' | 'floor' | 'table' | 'ceiling' | 'furniture';\n/** Semantic label for furniture (`couch`, `table`, `shelf`…). */\nlabel?: string;\n}"
+  }
+ ],
+ "../ray.js": [
+  {
+   "name": "onRayPress",
+   "text": "/**\n* Calls `handler` each time the player points at `entity` (its object or any child of it) and\n* pinches. Adds `RayInteractable` if the entity has none. Returns a function that stops it;\n* a feature needs not call it — the listener goes away with the entity.\n*/\nexport function onRayPress(world: World, entity: Entity, handler: (hit: RayHit) => void): () => void;"
+  },
+  {
+   "name": "RayHit",
+   "text": "export interface RayHit {\n/** The spot that was hit, in the room (world coordinates). */\npoint: Vector3;\n/** The direction out of the surface at that spot, in the room; (0, 1, 0) when the shape has no faces. */\nnormal: Vector3;\n/** The very mesh that was hit: the entity's own object or a child of it. */\nobject: Object3D;\n/** For an InstancedMesh: which instance. */\ninstanceId?: number;\n/** The hand that pinched. A mouse click on the flat screen counts as the right hand. */\nhand: 'left' | 'right';\n}"
+  }
+ ],
+ "../throwable.js": [
+  {
+   "name": "throwable",
+   "text": "/**\n* Makes `object` a thing to throw (see the top of the file). It drops from its position at the\n* moment of the call; a lost one drops from there again. Returns its entity: read `Grabbed` on\n* it, or `object.position` and `getVectorView(PhysicsBody, '_linearVelocity')` to score.\n*/\nexport function throwable(world: World, object: Object3D, options: ThrowableOptions): Entity;"
+  },
+  {
+   "name": "ThrowableOptions",
+   "text": "export interface ThrowableOptions {\n/** Radius of the sphere it collides as, metres. */\nradius: number;\n/** Bounciness 0..1 (default 0.8, a ball). */\nbounce?: number;\n/** Called when a lost one has been dropped at its first place again. */\nonReturn?: () => void;\n}"
+  }
+ ],
+ "../basketball.js": [
+  {
+   "name": "basketball",
+   "text": "/** A basketball of the given radius (a real one is 0.12 m), its centre at the origin. */\nexport function basketball(radius?: number): Mesh<SphereGeometry, MeshStandardMaterial>;"
+  }
+ ],
+ "../score.js": [
+  {
+   "name": "showScore",
+   "text": "/** Shows the game's numbers over Punto: `{ Score: 12, Wave: 3 }`, up to four, short English labels. */\nexport function showScore(world: World, values: Record<string, number | string>): void;"
+  }
+ ],
+ "../sfx.js": [
+  {
+   "name": "sfx",
+   "text": "/** Plays one variant of a sound group, at a point in the room if given. */\nexport function sfx(world: World, group: string, at?: Vector3, volume?: number): void;"
+  }
+ ],
+ "../music.js": [
+  {
+   "name": "velocityOf",
+   "text": "/** A finger's or a stick's speed as a velocity (1..127): a soft touch is quiet, a hard strike loud. */\nexport function velocityOf(finger: { speed: number; }): number;"
+  },
+  {
+   "name": "instrument",
+   "text": "/**\n* A sampled instrument for this game; it falls silent when the game is replaced. Each instrument is heard from\n* where it is played (`at`), as a real one in the room.\n*/\nexport function instrument(world: World, name: InstrumentName): Instrument;"
+  },
+  {
+   "name": "beatClock",
+   "text": "/**\n* A steady beat for rhythm games: `onStep(step, time)` for every step (`division` steps a beat: 4 = sixteenths), a\n* little ahead of time — play with `{ time }` and the notes land exactly on the beat, however the frames go. Stops\n* when the game is replaced. `bpm` can be changed while it runs.\n*/\nexport function beatClock(world: World, bpm: number, onStep: (step: number, time: number) => void, division?: 1 | 2 | 4 | 8): { bpm: number; stop(): void; readonly step: number; };"
+  },
+  {
+   "name": "InstrumentName",
+   "text": "export type InstrumentName = 'piano' | 'upright piano' | 'xylophone' | 'marimba' | 'glockenspiel' | 'vibraphone' | 'tubular bells' | 'kalimba' | 'drums';"
+  },
+  {
+   "name": "Instrument",
+   "text": "export interface Instrument {\n/** A note ('C4', 60) or a chord (a list), or for the drums a part ('snare'). `velocity` 1..127 (how hard; 100 by\n*  default), `at` the point it is heard from (the key, the drum), `time` an audio time from beatClock, `duration`\n*  in seconds (a held note; without it the note rings out). */\nplay(note: string | number | (string | number)[], options?: { velocity?: number; at?: Vector3; time?: number; duration?: number; }): void;\n/** Silences every note. */\nstop(): void;\n/** Resolves once its sounds are loaded (it may be played before: the first notes may then be silent). */\nready: Promise<void>;\n}"
+  }
+ ],
+ "../style.js": [
+  {
+   "name": "PALETTE",
+   "text": "/** The colours of Punto's world (the front page's concept art): use them before inventing new ones. */\nexport const PALETTE: Record<'grass' | 'grassLight' | 'leaf' | 'leafDark' | 'pine' | 'dirt' | 'earth' | 'earthDark' | 'bark' | 'wood' | 'woodLight' | 'rock' | 'rockDark' | 'sand' | 'snow' | 'water' | 'lava' | 'cream' | 'plastic' | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'violet' | 'pink' | 'cyan' | 'gold' | 'white' | 'black' | 'shade', number>;"
+  },
+  {
+   "name": "topSide",
+   "text": "/** A colour by which way a facet faces: its top, its sides, its underside (grass on top, earth on the sides). */\nexport const topSide: (top: number, side: number, bottom?: number) => (_c: Vector3, n: Vector3) => number;"
+  },
+  {
+   "name": "lit",
+   "text": "/** A colour lit like the islands: the top as it is, the sides `dark` (0.2) darker, the underside darker still. */\nexport const lit: (color: number, dark?: number) => (_c: Vector3, n: Vector3) => number;"
+  },
+  {
+   "name": "evenFaces",
+   "text": "/**\n* A colour a little lighter or darker per flat face rather than per triangle: both triangles of one flat face (a die's\n* side, a domino, a card, a block) get the same shade, so a big face never shows a diagonal fold. Pass it to toy with\n* `vary: 0`. `color` may be a colour or another pick (lit, topSide…); `vary` 0.06.\n*/\nexport const evenFaces: (color: number | ((c: Vector3, n: Vector3) => number), vary?: number, seed?: number) => (c: Vector3, n: Vector3) => number;"
+  },
+  {
+   "name": "bands",
+   "text": "/**\n* Broad horizontal bands of `colors` from bottom to top over the heights `from`..`to` (a planet's stripes, a striped\n* hat, a layered cake), their edges waving a little round the vertical axis (`wave`, a share of the height, 0.07).\n*/\nexport function bands(colors: number[], from: number, to: number, options?: { wave?: number; seed?: number; }): (c: Vector3) => number;"
+  },
+  {
+   "name": "ring",
+   "text": "/** A flat ring between two radii lying in the XZ plane, `thickness` thick, cut in `sides` straight facets (18). */\nexport function ring(inner: number, outer: number, thickness: number, sides?: number): BufferGeometry;"
+  },
+  {
+   "name": "lumps",
+   "text": "/**\n* Big lumps and hollows over a roughly round piece centred on the origin — a potato, an asteroid, a boulder, a cloud:\n* `count` broad swellings (and as many flattened sides), each up to `amount` of the radius (0.18). Call it before\n* `craters().press`; small hand-cut bumps are `jitter` / `blob`'s rough, these are the big shape.\n*/\nexport function lumps(geo: BufferGeometry, count?: number, options?: { amount?: number; seed?: number; }): BufferGeometry;"
+  },
+  {
+   "name": "craters",
+   "text": "/**\n* `count` craters over a roughly round piece centred on the origin (`size` radians, 0.45; `depth` share of radius, 0.08; `rim` height, 1).\n*/\nexport function craters(count: number, options?: { size?: number; depth?: number; rim?: number; seed?: number; }): {\npress(geo: BufferGeometry): BufferGeometry;\n/**\n* Their raised rims for a ball of `radius`: a low crooked seven-sided ring round each crater, one geometry. Pass\n* the pressed `body` of a lumpy thing (an asteroid) and the rims sit on its real surface instead of the ball's.\n*/\nrims(radius: number, body?: BufferGeometry): BufferGeometry;\npaint(color: Pick): (c: Vector3, n: Vector3) => number;\n};"
+  },
+  {
+   "name": "turned",
+   "text": "/**\n* A turned body round the Y axis from a side profile of [radius, y] points, bottom to top — a rocket, a vase, a\n* bottle, a chess piece, a lamp, a tower: `sides` straight facets round it (10; 6–8 for small things). End the profile\n* at radius 0 to close a tip or a bottom.\n*/\nexport function turned(profile: [number, number][], sides?: number): BufferGeometry;"
+  },
+  {
+   "name": "slab",
+   "text": "/**\n* A thick flat piece cut out along a contour of [x, y] points (in the XY plane), `thickness` thick round z = 0, its\n* edges chamfered (`bevel`, a share of the thickness, 0.3) — a fin, a wing, a leaf, a sign, a blade, a star; `holes`\n* (contours inside it) make a frame, a ring, a pond's bank.\n*/\nexport function slab(points: [number, number][], thickness: number, bevel?: number, holes?: [number, number][][]): BufferGeometry;"
+  },
+  {
+   "name": "forward",
+   "text": "/** A piece built upright (tip at +Y) laid along the thing, its tip forwards (−Z). */\nexport const forward: (geo: BufferGeometry) => BufferGeometry;"
+  },
+  {
+   "name": "flat",
+   "text": "/** A slab drawn with y forwards laid flat (y becomes −Z): a wing, a fin, a deck. */\nexport const flat: (geo: BufferGeometry) => BufferGeometry;"
+  },
+  {
+   "name": "upright",
+   "text": "/** A slab drawn with x backwards and y up stood upright along the thing (x becomes +Z): a tail fin, a crest. */\nexport const upright: (geo: BufferGeometry) => BufferGeometry;"
+  },
+  {
+   "name": "mirrored",
+   "text": "/** The left side's contour from the right side's: x mirrored, the order reversed so the faces still look out. */\nexport const mirrored: (points: [number, number][]) => [number, number][];"
+  },
+  {
+   "name": "hull",
+   "text": "/**\n* Angular faceted hull from cross-sections `[z, halfWidth, top, bottom]` along Z, front (−Z) first (width 0 = closed tip) — a ship, car, boat, fish.\n*/\nexport function hull(sections: [number, number, number, number][], options?: { shoulder?: number; }): BufferGeometry;"
+  },
+  {
+   "name": "block",
+   "text": "/** A chamfered block w × h × d set at `at` (its centre): a superstructure, a container, a pylon, a crate, a die. */\nexport function block(w: number, h: number, d: number, at?: [number, number, number], round?: number): BufferGeometry;"
+  },
+  {
+   "name": "chamferedBox",
+   "text": "/**\n* A box w × h × d round the origin with all twelve edges chamfered the same (`r` metres) and each corner cut by a small\n* triangle — even from every side (an extruded bevel leaves the four edges along its depth sharp). Flat facets.\n*/\nexport function chamferedBox(w: number, h: number, d: number, r: number): BufferGeometry;"
+  },
+  {
+   "name": "exhaust",
+   "text": "/**\n* A glowing thrust cone `length` long out of an engine of radius `r`, its narrow end at the origin and opening\n* backwards (+Z): put it at the engine's back end. One of the few things that may shine; flicker its scale for thrust.\n*/\nexport function exhaust(r: number, length: number, color?: number): Mesh;"
+  },
+  {
+   "name": "leaf",
+   "text": "/**\n* A long leaf from the origin along +X — a palm frond, a banana leaf, a fern, a feather, a petal: `width` at its\n* widest, folded along its middle (`fold`, how far the edges hang below the crease, a share of the width, 0.25),\n* rising and then drooping (`rise` and `droop`, metres at its middle and its tip), cut in `segments` facets along it\n* (6), pointed at the tip. Both faces are closed; the top faces up.\n*/\nexport function leaf(length: number, width: number, options?: { fold?: number; rise?: number; droop?: number; segments?: number; }): BufferGeometry;"
+  },
+  {
+   "name": "ribbon",
+   "text": "/**\n* A thick band along a path of points — a waterfall, a river, a road, a scarf, a banner: `width` across (along `side`,\n* +X by default, which must not run along the path), `thickness` through, `across` facets side to side (1; more to\n* paint stripes along it). Its top faces away from `side` × the path; both ends are closed.\n*/\nexport function ribbon(points: Vector3[], width: number, thickness: number, options?: { across?: number; side?: Vector3; }): BufferGeometry;"
+  },
+  {
+   "name": "byHeight",
+   "text": "/** A colour by height: [y, colour] stops from low to high, blended between (a mountain: rock, then snow). */\nexport function byHeight(stops: [number, number][]): (c: Vector3) => number;"
+  },
+  {
+   "name": "toy",
+   "text": "/**\n* Any geometry as a hand-painted toy piece: each facet coloured by `color` (a colour, or a function of the\n* facet's centre and normal, as lit / topSide / bands / byHeight), a little lighter or darker (`vary`, 0.08); `rough`\n* (metres) bends its corners a little, as cut by hand; `shade` (0–1, ~0.3) sinks its lower part into shade. One Mesh with the shared toy material.\n*/\nexport function toy(geo: BufferGeometry, color: Pick, finish?: Finish): Mesh;"
+  },
+  {
+   "name": "toyLook",
+   "text": "/**\n* Turns a thing built the usual way (meshes with MeshStandardMaterial colours) into the toy look in place:\n* facets painted in each material's colour with a little variation, flat shading. Textured, transparent,\n* glowing and skinned meshes are left as they are. Call it once, after building.\n*/\nexport function toyLook(object: Object3D, finish?: { vary?: number; }): void;"
+  },
+  {
+   "name": "merge",
+   "text": "/**\n* All the toy pieces in `root` (toy, the ready shapes, toyLook) as ONE mesh: a whole tree, island or village is a\n* single draw call (the frame budget counts meshes). Keeps their places; the pieces must not move on their own\n* afterwards. Pieces of other materials are left out (keep them as they are).\n*/\nexport function merge(root: Object3D, finish?: Finish): Mesh;"
+  },
+  {
+   "name": "roundTree",
+   "text": "/** A round leafy tree `height` metres tall. */\nexport function roundTree(height?: number, options?: { seed?: number; leaves?: number[]; }): Mesh;"
+  },
+  {
+   "name": "pineTree",
+   "text": "/** A pine `height` metres tall. */\nexport function pineTree(height?: number, options?: { seed?: number; color?: number; }): Mesh;"
+  },
+  {
+   "name": "rock",
+   "text": "/** A faceted stone `size` metres across, sitting on y = 0. */\nexport function rock(size?: number, options?: { seed?: number; color?: number; }): Mesh;"
+  },
+  {
+   "name": "cloud",
+   "text": "/** A soft white cloud of a few lumps, `size` metres long, centred on the origin. One mesh. */\nexport function cloud(size?: number, options?: { seed?: number; color?: number; }): Mesh;"
+  },
+  {
+   "name": "island",
+   "text": "/** A floating island `radius` metres across its grass. */\nexport function island(radius?: number, options?: { seed?: number; grass?: number; roots?: boolean; }): Mesh;"
+  },
+  {
+   "name": "eyes",
+   "text": "/**\n* Cartoon eyes for a creature, a person or a robot: two glossy black ovals with a white glint, `spacing` apart\n* (centre to centre), each `size` tall; `whites: true` puts each on a white eyeball. Centred between the eyes,\n* looking along +Z: put it on the front of a head. One mesh.\n*/\nexport function eyes(spacing: number, size: number, options?: { whites?: boolean; color?: number; }): Mesh;"
+  },
+  {
+   "name": "wheel",
+   "text": "/**\n* A toy wheel of radius r and width w on an axle along X (as a car's wheel stands): a dark chunky tyre with\n* rounded shoulders, a coloured hub and a cap. One mesh centred on its axle: spin it with rotation.x.\n*/\nexport function wheel(r: number, w: number, options?: { hub?: number; tyre?: number; }): Mesh;"
+  },
+  {
+   "name": "ground",
+   "text": "/**\n* A grass ground tile, the base of a little diorama (a house, a golf hole, a can pyramid): w × d, `height` thick,\n* grass on top hanging a little over its earth sides, chamfered; `round: true` makes it a disc of diameter w.\n* Its top is at y = 0. One mesh.\n*/\nexport function ground(w: number, d: number, options?: { height?: number; grass?: number; earth?: number; round?: boolean; seed?: number; }): Mesh;"
+  },
+  {
+   "name": "Pick",
+   "text": "type Pick = number | ((centre: Vector3, normal: Vector3) => number);"
+  },
+  {
+   "name": "Finish",
+   "text": "type Finish = { vary?: number; rough?: number; seed?: number; roughness?: number; metalness?: number; emissive?: number; shade?: number; };"
+  },
+  {
+   "name": "blob",
+   "text": "/** A round faceted lump (a crown of leaves, a stone, a bush). */\nexport function blob(radius: number, seed: number, detail?: number, rough?: number, squash?: number): BufferGeometry;"
+  },
+  {
+   "name": "edgeGlow",
+   "text": "/** Glowing lines along the sharp edges of a form (the concepts' cyan wire on glass and plastic). */\nexport function edgeGlow(geo: BufferGeometry, color?: number, opacity?: number, angle?: number): LineSegments;"
+  },
+  {
+   "name": "glowMat",
+   "text": "/** A glowing material that ignores light (lava, beams, sparks), optionally see-through and additive. */\nexport const glowMat: (color: number, opacity?: number) => MeshBasicMaterial;"
+  },
+  {
+   "name": "planet",
+   "text": "/** A planet `radius` metres, centred. Parts: 'Body', 'Rings'. */\nexport function planet(options?: {\nradius?: number;\ncolors?: number[];\ncraters?: number;\ncraterDepth?: number;\nrings?: boolean | { inner?: number; outer?: number; colors?: number[]; };\ntilt?: number;\nseed?: number;\nrough?: number;\ndetail?: number;\n}): Group;"
+  },
+  {
+   "name": "ringedPlanet",
+   "text": "/** A ringed planet: broad red, orange and sand bands, a yellow and a blue ring. ~0.25 m radius, centred. */\nexport const ringedPlanet: (options?: Parameters<typeof planet>[0]) => Group;"
+  },
+  {
+   "name": "moon",
+   "text": "/** A blue-grey moon with craters pressed in (dark floors, light rims). ~0.2 m radius, centred; 'Body'. */\nexport const moon: (options?: Parameters<typeof planet>[0]) => Group;"
+  },
+  {
+   "name": "asteroid",
+   "text": "/** A lumpy brown asteroid with craters. `size` metres across (0.3), centred; 'Body' (tumble it). */\nexport function asteroid(options?: { size?: number; color?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "sun",
+   "text": "/** A sun `radius` metres (0.3), centred. Parts: 'Body', 'Rays'. */\nexport function sun(options?: { radius?: number; color?: number; rays?: boolean; seed?: number; }): Group;"
+  },
+  {
+   "name": "satellite",
+   "text": "/** A toy satellite `size` metres across its panels (0.6), centred. Parts: 'Panels', 'Dish'. */\nexport function satellite(options?: { size?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "spaceStation",
+   "text": "/** A space station `size` metres across its panels (1.0), centred. Parts: 'Body', 'Panels', 'Dish'. */\nexport function spaceStation(options?: { size?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "rocket",
+   "text": "/** A chunky toy rocket `height` metres (0.6), standing on its fins at y = 0, the nose up. Parts: 'Flame'. */\nexport function rocket(options?: { height?: number; color?: number; body?: number; flame?: boolean; seed?: number; }): Group;"
+  },
+  {
+   "name": "comet",
+   "text": "/** A comet `size` metres long (0.6), its icy faceted head at the origin flying towards −Z and a chunky faceted tail streaming back along +Z in a few tongues, in bands. Parts: 'Head', 'Tail'. */\nexport function comet(options?: { size?: number; color?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "blackHole",
+   "text": "/** A black hole `size` metres across its mouth (0.7). Parts: 'Funnel', 'Hole'. */\nexport function blackHole(options?: { size?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "fighter",
+   "text": "/** A chunky sci-fi fighter `size` metres long (0.6), centred, nose to −Z. Parts: 'Engines', 'Muzzle'. */\nexport function fighter(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "scout",
+   "text": "/** A fast scout `size` metres long (0.5), nose to −Z. */\nexport function scout(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "cruiser",
+   "text": "/** A cruiser `size` metres long (1.0), nose to −Z. */\nexport function cruiser(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "mothership",
+   "text": "/** A mothership `size` metres long (1.4), nose to −Z. */\nexport function mothership(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "alienSaucer",
+   "text": "/** An alien flying saucer `size` metres across (0.6), centred. */\nexport function alienSaucer(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "cargoHauler",
+   "text": "/** A cargo hauler `size` metres long (0.9), nose to −Z. */\nexport function cargoHauler(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "drone",
+   "text": "/** A drone `size` metres across its rotors (0.5), centred, front to −Z. Parts: 'Rotors'. */\nexport function drone(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "battleship",
+   "text": "/** A space battleship `size` metres long (1.2), nose to −Z. */\nexport function battleship(options?: ShipOptions): Group;"
+  },
+  {
+   "name": "muzzlesOf",
+   "text": "/** Every 'Muzzle' of a ship: where its shots leave. */\nexport const muzzlesOf: (ship: Object3D) => Object3D[];"
+  },
+  {
+   "name": "ShipOptions",
+   "text": "/** A ship's options: its length in metres, its main and accent colours, a seed. */\nexport interface ShipOptions { size?: number; color?: number; accent?: number; seed?: number; }"
+  },
+  {
+   "name": "leaves",
+   "text": "/** Leaves lit like the islands: lime on top, green on the sides, dark green underneath. */\nexport const leaves: (top?: number, side?: number, under?: number) => (_c: Vector3, n: Vector3) => number;"
+  },
+  {
+   "name": "oakTree",
+   "text": "/** An oak tree `height` metres tall (1.2). Parts: 'Tree'. */\nexport function oakTree(height?: number, options?: { seed?: number; leaves?: [number, number, number]; }): Group;"
+  },
+  {
+   "name": "palmTree",
+   "text": "/** A palm tree `height` metres tall (1.4). Parts: 'Tree'. */\nexport function palmTree(height?: number, options?: { seed?: number; lean?: number; }): Group;"
+  },
+  {
+   "name": "blossom",
+   "text": "/** A chunky daisy head `radius` metres across its petals, facing up (+Y), its middle at the origin. */\nexport function blossom(radius: number, color: number, middle?: number, petals?: number, seed?: number): Group;"
+  },
+  {
+   "name": "flowers",
+   "text": "/** A flower patch `size` metres across (0.35). Parts: 'Flowers'. */\nexport function flowers(size?: number, options?: { seed?: number; colors?: number[]; }): Group;"
+  },
+  {
+   "name": "mushroom",
+   "text": "/** One mushroom `height` metres tall standing on y = 0. */\nexport function mushroom(height: number, cap: number, color: number, options?: { dots?: boolean; shape?: 'dome' | 'flat'; seed?: number; }): Group;"
+  },
+  {
+   "name": "mushrooms",
+   "text": "/** A cluster of six mushrooms `size` metres across (0.3) on y = 0. Parts: 'Mushrooms'. */\nexport function mushrooms(size?: number, options?: { seed?: number; }): Group;"
+  },
+  {
+   "name": "mountain",
+   "text": "/** A mountain `height` metres tall (0.6) on y = 0. Parts: 'Mountain'. */\nexport function mountain(height?: number, options?: { seed?: number; snow?: boolean; }): Group;"
+  },
+  {
+   "name": "cliff",
+   "text": "/** Rock lit like the concepts' cliffs: warm rust where the light falls, dark grey-brown in the shade, lighter tops. */\nexport const cliff: (warm?: number, cool?: number) => (_c: Vector3, n: Vector3) => number;"
+  },
+  {
+   "name": "waterfall",
+   "text": "/** A waterfall `height` metres tall (0.5) on y = 0, facing +Z. Parts: 'Water', 'Rocks'. */\nexport function waterfall(height?: number, options?: { seed?: number; }): Group;"
+  },
+  {
+   "name": "volcano",
+   "text": "/** A volcano `height` metres tall (0.5) on y = 0. Parts: 'Lava', 'Smoke', 'Volcano'. */\nexport function volcano(height?: number, options?: { seed?: number; }): Group;"
+  },
+  {
+   "name": "stone",
+   "text": "/** Mountain rock: cool blue-grey on one side, warm mauve-grey on the other, darker low down. */\nexport const stone: (height: number, cool?: number, warm?: number) => (c: Vector3, n: Vector3) => number;"
+  },
+  {
+   "name": "cave",
+   "text": "/** A cave `size` metres across (0.6) on y = 0, its mouth facing +Z. Parts: 'Cave'. */\nexport function cave(size?: number, options?: { seed?: number; }): Group;"
+  },
+  {
+   "name": "campfire",
+   "text": "/** A campfire `size` metres across (0.4) on y = 0. Parts: 'Fire', 'Sparks', 'Campfire'. */\nexport function campfire(size?: number, options?: { seed?: number; }): Group;"
+  },
+  {
+   "name": "pond",
+   "text": "/** A pond `size` metres across (0.6) on y = 0. Parts: 'Water', 'Bank'. */\nexport function pond(size?: number, options?: { seed?: number; }): Group;"
+  },
+  {
+   "name": "sword",
+   "text": "/** A sword `size` metres long (0.75), its grip's middle at the origin and its blade up +Y. Parts: 'Blade'. */\nexport function sword(options?: { size?: number; steel?: number; gem?: number; }): Group;"
+  },
+  {
+   "name": "bow",
+   "text": "/** A recurve bow `size` metres tall (0.8), held in the left hand: its grip at the origin, its limbs up and down bending back towards the player and flicking forward at the tips. Parts: 'String', 'Arrow', 'Muzzle'. */\nexport function bow(options?: { size?: number; wood?: number; wrap?: number; }): Group;"
+  },
+  {
+   "name": "slingshot",
+   "text": "/** A slingshot `size` metres tall (0.24), its handle at the origin and its fork up +Y. Parts: 'Pouch', 'Stone', 'Muzzle'. */\nexport function slingshot(options?: { size?: number; wood?: number; band?: number; }): Group;"
+  },
+  {
+   "name": "shield",
+   "text": "/** A round shield `size` metres across (0.5), held in the left hand: its handle at the origin, its face looking along −Z. Parts: 'Face'. */\nexport function shield(options?: { size?: number; field?: number; metal?: number; }): Group;"
+  },
+  {
+   "name": "wand",
+   "text": "/** A magic wand `size` metres long (0.36), aimed: its grip at the origin, the shaft running forward along −Z. Parts: 'Tip', 'Muzzle'. */\nexport function wand(options?: { size?: number; shaft?: number; metal?: number; }): Group;"
+  },
+  {
+   "name": "hammer",
+   "text": "/** A war hammer `size` metres long (0.45), its handle at the origin and its head up +Y. Parts: 'Head'. */\nexport function hammer(options?: { size?: number; head?: number; wood?: number; }): Group;"
+  },
+  {
+   "name": "flashlight",
+   "text": "/** A flashlight `size` metres long (0.24), aimed: its grip at the origin, its lens forward along −Z. Parts: 'Beam', 'Lens', 'Muzzle'. */\nexport function flashlight(options?: { size?: number; color?: number; beam?: number; reach?: number; }): Group;"
+  },
+  {
+   "name": "fishingRod",
+   "text": "/** A fishing rod `size` metres long (1.0), its grip at the origin and the rod up +Y bending forward. Parts: 'Reel', 'Line', 'Bobber'. */\nexport function fishingRod(options?: { size?: number; grip?: number; wood?: number; }): Group;"
+  },
+  {
+   "name": "bullseyeTarget",
+   "text": "/** An archery target `size` metres across its face (0.6), on a wooden easel, its face looking +Z, its middle at `height` (0.55). Parts: 'Face'. */\nexport function bullseyeTarget(options?: { size?: number; height?: number; colors?: number[]; }): Group;"
+  },
+  {
+   "name": "bullseyeRing",
+   "text": "/** Which ring of a bullseyeTarget a hit at `point` (in the room) falls in: 0 the bullseye … rings − 1 the outer, −1 a miss. */\nexport const bullseyeRing: typeof targetRing;"
+  },
+  {
+   "name": "can",
+   "text": "/** A tin can `height` metres tall (0.12), standing on y = 0. */\nexport function can(options?: { height?: number; color?: number; stripe?: number; seed?: number; }): Mesh;"
+  },
+  {
+   "name": "canPyramid",
+   "text": "/** A pyramid of cans to knock down, on a little floating grass block. Parts: userData.cans, 'Ground'. */\nexport function canPyramid(options?: { rows?: number; height?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "dart",
+   "text": "/** A dart `length` metres long (0.15), pointing along −Z with its tip at the origin. */\nexport function dart(options?: { length?: number; color?: number; }): Mesh;"
+  },
+  {
+   "name": "dartboard",
+   "text": "/** A dartboard `size` metres across (0.45), its face looking +Z, its middle at `height` (0.4). Parts: 'Darts', 'Face'. */\nexport function dartboard(options?: { size?: number; height?: number; darts?: boolean; }): Group;"
+  },
+  {
+   "name": "dartScore",
+   "text": "/** The score of a dart stuck at `point` (in the room) in a dartboard: 50 the bull, 25 the outer bull, × 3 / × 2 rings, 0 a miss. */\nexport function dartScore(board: Object3D, point: Vector3): number;"
+  },
+  {
+   "name": "basketballHoop",
+   "text": "/** A basketball hoop, its rim `height` metres up (1.6) and reaching towards +Z. Parts: 'Rim', 'Net', userData.rim. */\nexport function basketballHoop(options?: { height?: number; frame?: number; }): Group;"
+  },
+  {
+   "name": "bowlingPin",
+   "text": "/** A bowling pin `height` metres tall (0.38), standing on y = 0. */\nexport function bowlingPin(options?: { height?: number; stripe?: number; seed?: number; }): Mesh;"
+  },
+  {
+   "name": "bowlingPins",
+   "text": "/** Ten bowling pins in a triangle on the end of a wooden lane. Parts: userData.pins, 'Lane'. */\nexport function bowlingPins(options?: { height?: number; }): Group;"
+  },
+  {
+   "name": "soccerBall",
+   "text": "/** A football `radius` metres (0.11). */\nexport function soccerBall(options?: { radius?: number; }): Mesh;"
+  },
+  {
+   "name": "soccerGoal",
+   "text": "/** A football goal `width` metres wide (1.5), its mouth facing +Z. Parts: 'Ball', userData.mouth. */\nexport function soccerGoal(options?: { width?: number; ball?: boolean; }): Group;"
+  },
+  {
+   "name": "paddle",
+   "text": "/** A table-tennis paddle `size` metres long (0.26), its handle at the origin and its blade up +Y (in the hand's axes: hold it with holdInHand). Parts: 'Blade'. */\nexport function paddle(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "smallBall",
+   "text": "/** A small ball `radius` metres (0.02, a table-tennis ball). */\nexport function smallBall(options?: { radius?: number; color?: number; }): Mesh;"
+  },
+  {
+   "name": "pingPongTable",
+   "text": "/** A table-tennis table `length` metres long (2.2) along Z, its top at 0.76 m. Parts: 'Top', 'Net'. */\nexport function pingPongTable(options?: { length?: number; extras?: boolean; }): Group;"
+  },
+  {
+   "name": "golfHole",
+   "text": "/** A golf green `size` metres across (0.8) on y = 0. Parts: 'Green', 'Flag', userData.hole. */\nexport function golfHole(options?: { size?: number; flag?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "boxingGlove",
+   "text": "/** A boxing glove `size` metres long (0.28), its cuff at the origin and the fist up +Y (in the hand's axes). Parts: 'Glove'. */\nexport function boxingGlove(options?: { size?: number; color?: number; cuff?: number; seed?: number; }): Mesh;"
+  },
+  {
+   "name": "punchingBag",
+   "text": "/** A punching bag `size` metres tall (0.9) hanging from the top of its chain at the origin, everything below it. Parts: 'Bag'. */\nexport function punchingBag(options?: { size?: number; color?: number; band?: number; }): Group;"
+  },
+  {
+   "name": "trophy",
+   "text": "/** A trophy `size` metres tall (0.35) on y = 0. Parts: 'Trophy'. */\nexport function trophy(options?: { size?: number; gold?: number; base?: number; }): Group;"
+  },
+  {
+   "name": "rollWheels",
+   "text": "/** Turns every 'Wheel' of a vehicle by the distance it rolled (metres). */\nexport function rollWheels(vehicle: Object3D, distance: number): void;"
+  },
+  {
+   "name": "car",
+   "text": "/** A toy car `size` metres long (0.4), nose to −Z. */\nexport function car(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "truck",
+   "text": "/** A toy pickup truck `size` metres long (0.42), nose to −Z. */\nexport function truck(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "bus",
+   "text": "/** A toy school bus `size` metres long (0.55), nose to −Z. */\nexport function bus(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "spokedWheel",
+   "text": "/**\n* A spoked wheel of radius `r` and width `w`, its axle along X, standing on nothing (place it): a rim, `spokes` spokes\n* and a hub, all in `color` (a train's, a cart's, a bicycle's). One mesh named 'Wheel' (rollWheels turns it).\n*/\nexport function spokedWheel(r: number, w: number, options?: { color?: number; spokes?: number; }): Mesh;"
+  },
+  {
+   "name": "airplane",
+   "text": "/** A toy airplane `size` metres long (0.5), nose to −Z, standing on its wheels. Parts: 'Propeller'. */\nexport function airplane(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "helicopter",
+   "text": "/** A toy helicopter `size` metres long (0.55), nose to −Z, standing on its skids. Parts: 'Rotor', 'TailRotor'. */\nexport function helicopter(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "boat",
+   "text": "/** A toy motor boat `size` metres long (0.5), its bow to −Z, its waterline at y = 0. Parts: 'Motor'. */\nexport function boat(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "submarine",
+   "text": "/** A toy submarine `size` metres long (0.5), bow to −Z, floating centred. Parts: 'Periscope', 'Screw'. */\nexport function submarine(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "tank",
+   "text": "/** A toy tank `size` metres long (0.5), its gun to −Z. Parts: 'Barrel', 'Muzzle', 'Turret'. */\nexport function tank(options?: { size?: number; colors?: number[]; }): Group;"
+  },
+  {
+   "name": "motorcycle",
+   "text": "/** A toy cruiser motorcycle `size` metres long (0.42), its front wheel to −Z. Parts: 'Handlebar'. */\nexport function motorcycle(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "gableRoof",
+   "text": "/**\n* A gable roof `width` wide (along X) over a `depth` deep house, `height` tall, its eaves at y = 0: a red ridge roof\n* with rows of tiles down both slopes, overhanging a little. One Group of toy pieces (merge it with the house).\n*/\nexport function gableRoof(width: number, depth: number, height: number, color?: number): Group;"
+  },
+  {
+   "name": "house",
+   "text": "/** A cottage on a grass tile `size` metres wide (0.5). Parts: 'Door'. */\nexport function house(options?: { size?: number; walls?: number; roof?: number; ground?: boolean; }): Group;"
+  },
+  {
+   "name": "battlements",
+   "text": "/**\n* Battlements along the top of a wall `length` long (along X), `thickness` thick: merlons (teeth) `size` tall with\n* gaps between, standing on y = 0. A Group of toy pieces.\n*/\nexport function battlements(length: number, thickness: number, size: number, color?: number): Group;"
+  },
+  {
+   "name": "pyramidRoof",
+   "text": "/** A pointed four-sided roof `width` across and `height` tall in `color`, an orange finial on top, its foot at y = 0. */\nexport function pyramidRoof(width: number, height: number, color?: number): Group;"
+  },
+  {
+   "name": "castle",
+   "text": "/** A castle on a grass tile `size` metres wide (0.6). Parts: 'Gate'. */\nexport function castle(options?: { size?: number; stone?: number; roof?: number; ground?: boolean; }): Group;"
+  },
+  {
+   "name": "tieredRoof",
+   "text": "/** A cone roof of `tiers` overlapping tiled rings, `radius` at its eaves and `height` tall, `sides` facets round, a finial. */\nexport function tieredRoof(radius: number, height: number, color?: number, sides?: number, tiers?: number): Group;"
+  },
+  {
+   "name": "tower",
+   "text": "/** A stone watchtower `size` metres across its base (0.35). Parts: 'Door'. */\nexport function tower(options?: { size?: number; stone?: number; roof?: number; }): Group;"
+  },
+  {
+   "name": "lighthouse",
+   "text": "/** A lighthouse `size` metres across its island (0.4). Parts: 'Light'. */\nexport function lighthouse(options?: { size?: number; color?: number; }): Group;"
+  },
+  {
+   "name": "windmill",
+   "text": "/** A windmill on a round grass tile `size` metres wide (0.45). Parts: 'Sails'. */\nexport function windmill(options?: { size?: number; wood?: number; ground?: boolean; }): Group;"
+  },
+  {
+   "name": "bridge",
+   "text": "/** A stone arch bridge over a river on a grass tile `size` metres wide (0.6), the river running along Z and the bridge across X. Parts: 'Water'. */\nexport function bridge(options?: { size?: number; stone?: number; }): Group;"
+  },
+  {
+   "name": "tent",
+   "text": "/** A camping tent on a grass tile `size` metres wide (0.5), its open front to +Z. Parts: 'Fire'. */\nexport function tent(options?: { size?: number; colors?: [number, number]; ground?: boolean; }): Group;"
+  },
+  {
+   "name": "marketStall",
+   "text": "/** A market stall `size` metres wide (0.5), its counter facing +Z, standing on y = 0 without a tile unless `ground: true`. */\nexport function marketStall(options?: { size?: number; colors?: [number, number]; ground?: boolean; }): Group;"
+  },
+  {
+   "name": "temple",
+   "text": "/** A sandstone temple on a sand tile `size` metres wide (0.5), its front to +Z. */\nexport function temple(options?: { size?: number; stone?: number; ground?: boolean; }): Group;"
+  },
+  {
+   "name": "portalGate",
+   "text": "/** A portal gate `size` metres wide (0.5), facing +Z. Parts: 'Portal'. */\nexport function portalGate(options?: { size?: number; stone?: number; swirl?: number[]; }): Group;"
+  },
+  {
+   "name": "chessPiece",
+   "text": "/** One chess piece standing on y = 0, `height` metres tall for a king (0.075; the others in proportion). */\nexport function chessPiece(kind: ChessKind, side: 'white' | 'black', height?: number): Mesh;"
+  },
+  {
+   "name": "chessSquare",
+   "text": "/** Where the middle of a chess square ('a1' … 'h8') lies on a chessBoard of `square` metres (white's rank 1 at +Z). */\nexport function chessSquare(name: string, square?: number): Vector3;"
+  },
+  {
+   "name": "chessBoard",
+   "text": "/**\n* A chessboard of 8 × 8 squares `square` metres each (0.045), cream and charcoal, each square flat in one colour,\n* set in a thick wooden frame with a raised rim of lighter wood; the squares' top at y = 0.\n*/\nexport function chessBoard(square?: number): Mesh;"
+  },
+  {
+   "name": "chessSet",
+   "text": "/** A chess set. */\nexport function chessSet(options?: { square?: number; }): Group;"
+  },
+  {
+   "name": "die",
+   "text": "/** A die `size` metres across (0.03), its centre at the origin (stand it at y = size / 2). */\nexport function die(size?: number, color?: number, pip?: number): Mesh;"
+  },
+  {
+   "name": "dieValue",
+   "text": "/** The value a die shows on top (the face pointing most upwards in the world): read a throw once it rests. */\nexport function dieValue(die: Object3D): number;"
+  },
+  {
+   "name": "dieRotation",
+   "text": "/** The turn that lays a die with `value` on top (copy it into die.quaternion). */\nexport function dieRotation(value: number): Quaternion;"
+  },
+  {
+   "name": "dice",
+   "text": "/** A pair of dice (or `count`) lying a little apart, each its own mesh named 'Die 1', 'Die 2'… with a different value up. */\nexport function dice(count?: number, size?: number): Group;"
+  },
+  {
+   "name": "playingCard",
+   "text": "/** A playing card (63 × 88 mm, a toy 3 mm thick), its centre at the origin, its face towards +Z and its top up (+Y). Parts: 'A hearts'. */\nexport function playingCard(suit: Suit, rank?: number, size?: number): Mesh;"
+  },
+  {
+   "name": "cardFan",
+   "text": "/**\n* Cards fanned as held in a hand: each turned about a pivot below its bottom middle by `spread` radians (0.2) from\n* the next, shifted a little sideways and set a little behind it (the first card at the back, left). The cards keep their own meshes and names.\n*/\nexport function cardFan(cards: Mesh[], spread?: number): Group;"
+  },
+  {
+   "name": "blockTower",
+   "text": "/** A tower of wooden blocks to pull out one by one. */\nexport function blockTower(options?: { layers?: number; length?: number; pulled?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "brick",
+   "text": "/** A building brick `w` × `d` studs (2 × 4), `pitch` metres a stud (0.016 — twice a real one, to take in the hand), 1.2 pitches tall, its origin at its bottom middle. Parts: 'Brick 2x4'. */\nexport function brick(w?: number, d?: number, color?: number, pitch?: number): Mesh;"
+  },
+  {
+   "name": "brickHeight",
+   "text": "/** A brick's height for `pitch` (stack: the next brick's y is this much higher). */\nexport const brickHeight: (pitch?: number) => number;"
+  },
+  {
+   "name": "brickSnap",
+   "text": "/**\n* Snaps a brick's position onto the stud grid (in place; returns it): x and z to whole pitches, or half pitches when\n* the brick is odd along that side (`w`, `d` as built and turned a quarter or not), y to whole brick heights.\n*/\nexport function brickSnap(position: Vector3, w?: number, d?: number, pitch?: number, turnedQuarter?: boolean): Vector3;"
+  },
+  {
+   "name": "brickPile",
+   "text": "/** A small pile of bricks as in the concept: red, blue and yellow 2×4s and 2×2s stacked across each other, each its own mesh. */\nexport function brickPile(pitch?: number): Group;"
+  },
+  {
+   "name": "jigsaw",
+   "text": "/** A jigsaw puzzle of `cols` × `rows` pieces (3 × 2) that fit together. Parts: userData.home. */\nexport function jigsaw(options?: { cols?: number; rows?: number; size?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "domino",
+   "text": "/** A domino `length` long (0.064; half as wide, a sixth as thick), its centre at the origin, lying face up (+Y) and long along X. */\nexport function domino(a: number, b: number, length?: number, color?: number, pip?: number): Mesh;"
+  },
+  {
+   "name": "dominoChain",
+   "text": "/** A chain of `count` dominoes (12) standing on end along a gentle S-curve on y = 0, each `spacing` (0.6 of a length) behind the last, face to face, random values. Parts: 'Domino k'. */\nexport function dominoChain(count?: number, length?: number, spacing?: number, seed?: number): Group;"
+  },
+  {
+   "name": "spinningTop",
+   "text": "/** A spinning top `height` metres tall (0.12), standing on its tip at the origin. Parts: 'Spinning Top'. */\nexport function spinningTop(height?: number): Mesh;"
+  },
+  {
+   "name": "puzzleCube",
+   "text": "/** A 3 × 3 × 3 puzzle cube `size` metres across (0.075), its centre at the origin. */\nexport function puzzleCube(options?: { size?: number; scramble?: number; seed?: number; }): Group;"
+  },
+  {
+   "name": "cubeLayer",
+   "text": "/** The cubies of a puzzle cube now in layer `layer` (−1, 0, 1) along `axis`: parent them to a pivot to animate a turn. */\nexport function cubeLayer(cube: Object3D, axis: 'x' | 'y' | 'z', layer: number): Object3D[];"
+  },
+  {
+   "name": "turnLayer",
+   "text": "/** Turns a puzzle cube's layer a quarter turn (`dir` 1 anticlockwise looking down the axis, −1 clockwise) at once, snapping each cubie to the grid. */\nexport function turnLayer(cube: Object3D, axis: 'x' | 'y' | 'z', layer: number, dir?: number): void;"
+  },
+  {
+   "name": "treasureChest",
+   "text": "/** A treasure chest `width` metres wide (0.5; 0.32 deep), standing on y = 0, its front towards +Z. Parts: 'Treasure', 'Lid'. */\nexport function treasureChest(options?: { width?: number; open?: number; treasure?: boolean; }): Group;"
+  },
+  {
+   "name": "ChessKind",
+   "text": "export type ChessKind = 'king' | 'queen' | 'rook' | 'bishop' | 'knight' | 'pawn';"
+  },
+  {
+   "name": "Suit",
+   "text": "export type Suit = 'hearts' | 'diamonds' | 'clubs' | 'spades';"
+  },
+  {
+   "name": "HAFT_THEMES",
+   "text": "/**\n* The themes a hafted thing comes in: 'classic' as drawn (each thing its own colours), 'toy' bright plastic, 'iron'\n* dark wood and grey iron, 'gold' a royal purple haft with gold, 'crystal' a violet haft with a glowing crystal head.\n*/\nexport const HAFT_THEMES: {\ntoy: { haft: number; metal: number; edge: number; accent: number; };\niron: { haft: number; metal: number; edge: number; accent: number; };\ngold: { haft: number; metal: number; edge: number; accent: number; };\ncrystal: { haft: number; metal: number; edge: number; accent: number; };\n};"
+  },
+  {
+   "name": "haft",
+   "text": "/**\n* A wooden haft from `bottom` to `top` (metres up Y from the grip at the origin), `r0` thick at the bottom tapering\n* to `r1`, bowed a little (`bow`, metres towards −Z at its middle; 0 straight), six-sided; a knob at its foot\n* (`knob`, 0 none). Shared by every hafted thing; also for a haft of your own (a flag pole, a staff, a halberd).\n*/\nexport function haft(bottom: number, top: number, r0: number, r1: number, options?: { bow?: number; knob?: number; }): BufferGeometry[];"
+  },
+  {
+   "name": "band",
+   "text": "/** A band of cord or leather wound round a haft of radius `r` at height `y`, `h` tall: a binding, a grip wrap. */\nexport const band: (y: number, r: number, h: number) => BufferGeometry;"
+  },
+  {
+   "name": "axe",
+   "text": "/** An axe `size` metres long (0.55), in the hand's axes. Parts: 'Handle', 'Head', 'Edge'. */\nexport function axe(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "pickaxe",
+   "text": "/** A pickaxe `size` metres long (0.7), in the hand's axes. Parts: 'Handle', 'Head', 'Tip'. */\nexport function pickaxe(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "shovel",
+   "text": "/** A shovel `size` metres long (0.95), held by its D-grip at the origin. Parts: 'Handle', 'Head', 'Edge'. */\nexport function shovel(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "rake",
+   "text": "/** A garden rake `size` metres long (1.1), held near the foot of its haft at the origin. Parts: 'Handle', 'Head', 'Tip'. */\nexport function rake(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "broom",
+   "text": "/** A broom `size` metres long (0.92), held near the foot of its stick at the origin. Parts: 'Handle', 'Head', 'Tip'. */\nexport function broom(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "spear",
+   "text": "/** A spear `size` metres long (1.2), held at its balance point at the origin. Parts: 'Handle', 'Head', 'Tip'. */\nexport function spear(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "trident",
+   "text": "/** A trident `size` metres long (1.15), held at its balance point at the origin. Parts: 'Handle', 'Head', 'Tip'. */\nexport function trident(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "mace",
+   "text": "/** A mace `size` metres long (0.62), its grip at the origin. Parts: 'Handle', 'Head'. */\nexport function mace(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "scythe",
+   "text": "/** A scythe `size` metres long (0.85), its grip at the origin. Parts: 'Handle', 'Head', 'Edge', 'Tip'. */\nexport function scythe(options?: { size?: number; theme?: HaftTheme; }): Group;"
+  },
+  {
+   "name": "torch",
+   "text": "/** A torch `size` metres long (0.5), its grip at the origin. Parts: 'Fire', 'Tip', 'Handle', 'Head'. */\nexport function torch(options?: { size?: number; theme?: HaftTheme; lit?: boolean; }): Group;"
+  },
+  {
+   "name": "HaftTheme",
+   "text": "export type HaftTheme = 'classic' | keyof typeof HAFT_THEMES;"
+  }
+ ],
+ "../instruments.js": [
+  {
+   "name": "playInstrument",
+   "text": "/**\n* Makes every part of an instrument play: a fingertip (or a stick given to strikeWith) touching a part plays its\n* note, as loud as the touch was fast, heard from the part; the part sinks a few millimetres and glows while\n* touched. Load the sounds now (the first second may be silent). Everything stops with the game. Returns the\n* sampled instruments it plays, by sound name, for playing them from code too (a demo tune, a beat).\n*/\nexport function playInstrument(world: World, built: Built, options?: { sink?: number; onPlay?: (part: Part) => void; }): Map<Sound, Instrument>;"
+  },
+  {
+   "name": "synth",
+   "text": "/**\n* A compact analog synthesizer: two octaves of keys between red wooden cheeks, a sloped panel with a glowing\n* waveform screen, two sliders and ten coloured knobs. ~0.42 × 0.11 × 0.34 m, for a table.\n*/\nexport function synth(options?: { from?: string; to?: string; sound?: Sound; }): Built;"
+  },
+  {
+   "name": "pads",
+   "text": "/**\n* A drum machine: a 4 × 4 grid of soft lit rubber pads (5 cm, the drum kit and six marimba notes), a screen, a\n* fader and three knobs on a graphite body. ~0.32 × 0.05 × 0.3 m, for a table.\n*/\nexport function pads(options?: { sounds?: [string, Sound][]; }): Built;"
+  },
+  {
+   "name": "xylophone",
+   "text": "/**\n* A toy xylophone: one row of honey-coloured wooden bars (C major by default, C5–E6) on a dark red trapezoid\n* frame, two mallets resting on it. ~0.55 × 0.07 × 0.3 m, for a table. `sharps: true` adds the black-key row.\n*/\nexport function xylophone(options?: { from?: string; to?: string; sharps?: boolean; }): Built;"
+  },
+  {
+   "name": "marimba",
+   "text": "/** A concert marimba: rosewood bars in two rows over silver resonators, on a dark frame with casters. C3–C5. */\nexport function marimba(options?: { from?: string; to?: string; }): Built;"
+  },
+  {
+   "name": "glockenspiel",
+   "text": "/**\n* A glockenspiel in its open wooden case: bright steel bars in two rows on red felt, the lid standing open\n* behind them, two mallets. C6–C7, ~0.33 × 0.22 m, for a table.\n*/\nexport function glockenspiel(options?: { from?: string; to?: string; }): Built;"
+  },
+  {
+   "name": "vibraphone",
+   "text": "/** A vibraphone: aluminium bars over golden resonators with their fan discs, a motor and a sustain pedal. F3–F5. */\nexport function vibraphone(options?: { from?: string; to?: string; }): Built;"
+  },
+  {
+   "name": "kalimba",
+   "text": "/** A kalimba: a wooden box with a sound hole and 17 steel tines over a bridge, longest in the middle. ~0.18 × 0.15 m. */\nexport function kalimba(options?: { tines?: string[]; }): Built;"
+  },
+  {
+   "name": "drumKit",
+   "text": "/** A five-piece drum kit with hi-hat, crash and ride. ~1.5 × 1.3 × 1.1 m, on the floor. */\nexport function drumKit(): Built;"
+  },
+  {
+   "name": "Sound",
+   "text": "/** What the host can sound, as a part names it. */\nexport type Sound = 'piano' | 'upright piano' | 'xylophone' | 'marimba' | 'glockenspiel' | 'vibraphone' | 'tubular bells' | 'kalimba' | 'drums';"
+  }
+ ],
+ "../fx.js": [
+  {
+   "name": "sizeOf",
+   "text": "/**\n* How big a thing is, metres — the longest side of its box. The `size` most effects ask for is the size of the thing\n* they happen to: `play(world, poof({ size: sizeOf(thing) }), thing)`.\n*/\nexport function sizeOf(thing: Object3D | { object3D?: Object3D | null; }): number;"
+  },
+  {
+   "name": "explosion",
+   "text": "/**\n* One-shot explosion at `spot` (`size` = thing width, m). Heaviest effect: one at a time.\n*/\nexport function explosion(o?: { size?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "dust",
+   "text": "/**\n* One-shot dust ring at a thing's foot (`size` = thing width, m; `color` = ground tone).\n*/\nexport function dust(o?: { size?: number; color?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "shatter",
+   "text": "/**\n* One-shot shatter: breaks `of` into coloured pieces (play with no target, then dispose `of`), or use `size` + `colors` at `spot`. `count` pieces (16).\n*/\nexport function shatter(o?: {\nof?: Object3D | { object3D?: Object3D | null; };\nsize?: number;\ncolors?: number[];\ncolor?: number;\ncount?: number;\nseed?: number;\n}): Fx;"
+  },
+  {
+   "name": "poof",
+   "text": "/**\n* One-shot poof when something appears or vanishes (`size` = thing width, m; `color` puffs; `stars: false` for none).\n*/\nexport function poof(o?: { size?: number; color?: number; stars?: boolean; seed?: number; }): Fx;"
+  },
+  {
+   "name": "fire",
+   "text": "/**\n* Endless flame along +Y (`size` = burner width, m; `palette`: 'fire'|'plasma'|'magic'|'acid'|'ice'; `above` surface height, m; `glow: false` no light).\n*/\nexport function fire(o?: { size?: number; palette?: 'fire' | 'plasma' | 'magic' | 'acid' | 'ice'; above?: number; glow?: boolean; seed?: number; }): Fx;"
+  },
+  {
+   "name": "trail",
+   "text": "/**\n* Endless tapering trail behind a moving target: `play(world, trail({ size, color, length }), target)`. `size` = target width, m; `length` seconds (0.3).\n*/\nexport function trail(o?: { size?: number; color?: number; length?: number; }): Fx & { follow(point: Vector3): void; };"
+  },
+  {
+   "name": "lightning",
+   "text": "/**\n* One-shot lightning bolt (`size` = length, m; `color` rim; `mark` scorch seconds, 6). Default strikes `spot` from `size` above; or `to` local / `from`+`to` world.\n*/\nexport function lightning(o?: { from?: Vector3; to?: Vector3; size?: number; color?: number; mark?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "play",
+   "text": "/**\n* Shows an effect in the game:\n* - `play(world, fx, point)` — at a world `Vector3`\n* - `play(world, fx, point, normal)` — oriented so local `+Y` aligns with `normal` (walls, ceilings, slopes!)\n* - `play(world, fx, entityOrObject3D)` — parented to it, or auto-tracking its world position (`trail`)\n*/\nexport function play(world: World, fx: Fx, at?: Vector3 | Entity | Object3D, normal?: Vector3): { stop(): void; };"
+  },
+  {
+   "name": "Fx",
+   "text": "/** One effect, made by an effect function; show it with play(). */\nexport interface Fx { object: Object3D; }"
+  },
+  {
+   "name": "light",
+   "text": "/**\n* Endless halo + light pool below (`size` = source width, m; `above` height over surface, m; `halo` 0.3..1; `flicker` 0..1; `pulse` 0..1).\n*/\nexport function light(o?: { size?: number; color?: number; above?: number; halo?: number; flicker?: number; pulse?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "smoke",
+   "text": "/**\n* Endless rising smoke/steam along +Y (`size` = mouth width, m; `color` 0x55525c dark smoke; `opacity` 0.75; `wind` lean along +X in heights, 0.3; `height` in sizes, 6; `thin` 0..1; `pace` seconds, 3; `faceted: false` heavy).\n*/\nexport function smoke(o?: { size?: number; color?: number; opacity?: number; faceted?: boolean; wind?: number; height?: number; thin?: number; count?: number; pace?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "spray",
+   "text": "/**\n* Fountain/hose jet along +Y (endless, or `burst: true` one-shot splash). `size` = spout width, m; `height` in sizes (4); `spread` 0..1; `above` height over landing surface, m; `pace` climb s (0.32).\n*/\nexport function spray(o?: { size?: number; color?: number; height?: number; spread?: number; above?: number; count?: number; pace?: number; burst?: boolean; seed?: number; }): Fx;"
+  },
+  {
+   "name": "confetti",
+   "text": "/**\n* One-shot confetti burst along +Y (~4 s, for a win). `size` = burst width, m (rises 1.3×); `above` height over landing surface, m; `count` scraps (48).\n*/\nexport function confetti(o?: { size?: number; colors?: number[]; count?: number; above?: number; life?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "impact",
+   "text": "/**\n* One-shot impact sparks + scorch (`play(world, impact({ size }), point, normal)`). `size` = blow width, m; `mark` scorch seconds (6; 0 none); `endless: true` continuous sparks.\n*/\nexport function impact(o?: { size?: number; color?: number; mark?: number; endless?: boolean; seed?: number; }): Fx;"
+  },
+  {
+   "name": "laser",
+   "text": "/**\n* Endless steady beam (`play(world, ray)` once with no target, then `ray.aim(from, to)` and `ray.on = true/false`). `size` = scale (1 room, 0.3 table); `sparks: false` none.\n*/\nexport function laser(o?: { size?: number; color?: number; sparks?: boolean; }): Laser;"
+  },
+  {
+   "name": "shots",
+   "text": "/**\n* Endless pooled shots (`play(world, gun)` once with no target, then `gun.fire(from, direction)`). Hits `targets` (`onHit`) and room surfaces (`onRoom`).\n*/\nexport function shots(o?: ShotsOptions): Shots;"
+  },
+  {
+   "name": "Laser",
+   "text": "export interface Laser extends Fx {\n/** From where to where it runs, in the space the effect's object is in; call it whenever either end moves. */\naim(from: Vector3, to: Vector3): void;\n/** Whether it shines now. */\non: boolean;\n}"
+  },
+  {
+   "name": "ShotsOptions",
+   "text": "export interface ShotsOptions {\nkind?: ShotKind;\n/** its colour: a bolt's and an orb's glow (0x5ad8ff), the bullet's tracer (warm) */\ncolor?: number;\n/** the scale of the shot: 1 for a pistol in the room, 0.25 for ships on a table */\nsize?: number;\n/** metres a second for size 1: slow enough to see (bullet 22, bolt 12, orb 8, rocket 7) */\nspeed?: number;\n/** what it can hit — each thing's own box, turned as the thing is: your array or Set, read every frame (add and remove targets in it as the game goes), or a function that gives the list */\ntargets?: Iterable<ShotTarget> | (() => Iterable<ShotTarget>);\n/** called once for each hit of a target: the target as you gave it, the point and the way out of it, in the world */\nonHit?: (target: ShotTarget, point: Vector3, normal: Vector3) => void;\n/** whether it also lands on the real room's walls, tables and floor (true); `onRoom` is called then */\nroom?: boolean;\nonRoom?: (point: Vector3, normal: Vector3) => void;\n/** how far it flies when it hits nothing, in sizes (12) */\nrange?: number;\n/** how many can fly at once (12): the oldest is taken when all are flying */\ncount?: number;\n/** seconds the mark of a hit stays (bullet, bolt, orb): 6; 0 for none — keep it short for rapid fire */\nmark?: number;\n}"
+  },
+  {
+   "name": "Shots",
+   "text": "export interface Shots extends Fx {\n/** Fires one: from where it leaves the barrel, the way it goes — in the space the effect's object is in. */\nfire(from: Vector3, direction: Vector3): void;\n}"
+  },
+  {
+   "name": "ShotKind",
+   "text": "export type ShotKind = 'bullet' | 'bolt' | 'orb' | 'rocket';"
+  },
+  {
+   "name": "ShotTarget",
+   "text": "/** Something a shot can hit: an object of the scene, or an entity (its object3D). */\nexport type ShotTarget = Object3D | { object3D?: Object3D | null; };"
+  },
+  {
+   "name": "bubbles",
+   "text": "/**\n* Endless rising bubbles along +Y (`size` = source width, m; `color` tint; `height` climb in sizes, 2.5; `pace` seconds, 2.2; `count` 14).\n*/\nexport function bubbles(o?: { size?: number; color?: number; height?: number; count?: number; pace?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "fireworks",
+   "text": "/**\n* One-shot fireworks along +Y (~5 s, for a win). `size` = show scale, m (0.5 table, 1.5 room; bursts at 1.3–1.9× up); `shots` rockets (5).\n*/\nexport function fireworks(o?: { size?: number; colors?: number[]; shots?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "sparkle",
+   "text": "/**\n* Endless blinking stars around a thing (`size` = thing width, m; `color` pale gold; `count` 7).\n*/\nexport function sparkle(o?: { size?: number; color?: number; count?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "weather",
+   "text": "/**\n* Endless weather cloud placed ON the surface below (`kind`: 'rain'|'storm'|'snow'; `size` = cloud width, m; `height` above surface, 0.9× size).\n*/\nexport function weather(o?: { kind?: 'rain' | 'storm' | 'snow'; size?: number; height?: number; seed?: number; }): Fx;"
+  },
+  {
+   "name": "outlineGlow",
+   "text": "/**\n* Endless 3D \"pick me up / important item\" aura around an object `size` metres wide:\n* Fresnel halo shell + two counter-orbiting stereo comet rings + rising sparkles.\n*/\nexport function outlineGlow({ color, size }?: { color?: number; size?: number; }): Fx;"
+  },
+  {
+   "name": "targetRing",
+   "text": "/**\n* Clean spatial XR goal / drop-zone / placement marker (`size` = radius in metres).\n* High-contrast dark-backed ring on local y = 0 + soft 3D light crown + hovering 3D chevron pointer (`▼`).\n* Call `.pulse()` to trigger a bright confirmation wave when an item/ball enters!\n*/\nexport function targetRing({ color, size }?: { color?: number; size?: number; }): Fx & { pulse(): void; };"
+  },
+  {
+   "name": "lava",
+   "text": "/** World-scale molten basalt floor on local y = 0 (`coverFloor`-ready, never stretches) + rising embers. */\nexport function lava({ width, depth, color }?: { width?: number; depth?: number; color?: number; }): Fx;"
+  },
+  {
+   "name": "water",
+   "text": "/**\n* Natural clear water surface on local y = 0 (`coverFloor`-ready, never over-glows).\n* Call `.drop(x, z)` in local metres for interactive expanding wave rings.\n*/\nexport function water({ width, depth, color }?: { width?: number; depth?: number; color?: number; }): Fx & { drop(x: number, z: number): void; };"
+  },
+  {
+   "name": "coverFloor",
+   "text": "/**\n* Covers the whole real floor with a surface effect: lava, water, mist.\n*/\nexport function coverFloor<T extends Fx>(world: World, make: (width: number, depth: number) => T, onReady?: (surface: T) => void): void;"
+  }
+ ],
+ "../models.js": [
+  {
+   "name": "animateModel",
+   "text": "/**\n* Plays the clips that come with a downloaded model (walk, run, idle…).\n* Pass the same `AssetManager.getGLTF(id)` copy whose scene went into\n* `fitModel`. `play('walk')` switches to the clip with that short name\n* (case does not matter; otherwise the first name containing it), blending\n* over a quarter of a second. `clips` lists the short names. It stops with\n* the game.\n*/\nexport const animateModel: typeof animate;"
+  },
+  {
+   "name": "takePart",
+   "text": "/**\n* Takes one named part out of a downloaded model made of several things (a ball that comes with\n* its hoop, one tree of five) and returns it as a thing of its own, ready for `fitModel`. The\n* part keeps the size and turn it had inside the model. Take parts out BEFORE fitting the rest.\n*/\nexport function takePart(model: Object3D, name: string): Group;"
+  },
+  {
+   "name": "fitModel",
+   "text": "/**\n* Turns a downloaded model (any size, any origin) into one of real size that\n* stands on whatever it is put on: the longest side becomes `length` metres,\n* and the origin moves to the centre of the model's bottom. The file's axes\n* stay as they are (glTF: +Y is up); where its front is, the file does not say.\n*/\nexport function fitModel(model: Object3D, options: { length: number; }): Group;"
+  }
+ ],
+ "../creature.js": [
+  {
+   "name": "Walker",
+   "text": "export interface Walker {\nentity: Entity;\n/** Walk across the real floor to the spot nearest to `target`, around the furniture. False if there is no way. */\ngoTo(target: Vector3): boolean;\n/** Stroll to a random free spot of the floor. */\nwander(): void;\n/** Come up to the player and stop beside their feet, in view, without walking through their legs. */\ncomeToPlayer(): boolean;\n/** Run to a spot where real furniture stands between the creature and the player. False if there is none. */\nhide(): boolean;\n/** Walk up to a real piece of furniture ('couch', 'table', 'bed', ...) and hop onto it. False if the room has none. */\njumpOn(label: string): boolean;\n/** True while standing still: time to decide what to do next. */\nreadonly idle: boolean;\n/** True while sitting on top of furniture. */\nreadonly perched: boolean;\n}"
+  },
+  {
+   "name": "walkInRoom",
+   "text": "/**\n* Makes a creature live in the real room: it walks on the real floor, goes\n* around real furniture, hides behind it and hops onto it.\n*/\nexport function walkInRoom(world: World, body: Object3D, { speed, radius, hop }: { speed?: number; radius?: number; hop?: number; }, onReady: (walker: Walker) => void): void;"
+  }
+ ],
+ "../tabletop.js": [
+  {
+   "name": "Board",
+   "text": "export interface Board {\n/** Parent for everything in the small world: `world.createTransformEntity(thing, board.root)`. */\nroot: Entity;\n/** Size of the play area in the game's own units, as asked. */\nwidth: number;\ndepth: number;\n/** How many metres one game unit is. */\nunit: number;\n/** False when no table was found and the board lies on the floor. */\nonTable: boolean;\n/** The real table top (or the free floor) under the board, metres: x across, z towards the player. */\nmetres: { width: number; depth: number; };\n}"
+  },
+  {
+   "name": "tabletop",
+   "text": "/**\n* A small world on the player's real table.\n*/\nexport function tabletop(world: World, { width, depth, on, fill }: { width: number; depth: number; on?: 'table' | 'floor'; fill?: boolean; }, onReady: (board: Board) => void): void;"
+  }
+ ],
+ "../breakroom.js": [
+  {
+   "name": "BreakableRoom",
+   "text": "export interface BreakableRoom {\n/** Where a ray (a shot, a thrown thing) meets a real wall, ceiling or floor. */\nhit(origin: Vector3, direction: Vector3): { point: Vector3; normal: Vector3; } | undefined;\n/**\n* Smashes the real wall or ceiling around a world point: pieces fly into the\n* room and the sky shows through. Returns false where nothing can break\n* (the floor, the bottom 0.75 m of walls, already broken places).\n*/\nbreakAt(point: Vector3, radius?: number): boolean;\n/** Everything broken so far flies back into place and the walls are whole again; resolves when done. */\nrepair(): Promise<void>;\n/** Takes the breakable room away (masks, sky, pieces): a whole room looks the same without it. */\ndispose(): void;\n}"
+  },
+  {
+   "name": "breakableRoom",
+   "text": "/**\n* Makes the real walls and ceiling breakable, piece by piece, anywhere.\n*/\nexport function breakableRoom(world: World, sky: Sky, onReady: (room: BreakableRoom) => void): void;"
+  }
+ ],
+ "../outside.js": [
+  {
+   "name": "Portal",
+   "text": "export interface Portal {\n/** World position of the hole's centre, on the real surface. */\ncentre: Vector3;\n/** Unit vector from the surface into the room: things fly out along it. */\nnormal: Vector3;\n/** Half the size of the opening. A crack is much narrower than it is long. */\nradius: number;\ncolor: number;\n}"
+  },
+  {
+   "name": "openPortals",
+   "text": "/**\n* Opens finished portals in the real room and calls `onOpen` once they exist.\n*/\nexport function openPortals(world: World, requests: {\nwall: Wall;\nshape?: Opening;\ncolor?: number;\nradius?: number;\nsky?: Sky; /** preferred spot on that surface (world) */\nat?: Vector3;\n}[], onOpen: (portals: Portal[]) => void): void;"
+  },
+  {
+   "name": "SkyRecipe",
+   "text": "/**\n* A sky is built from layers; every layer is optional except the colours.\n* Colours are hex numbers. Mix freely: a green sun over a red sea, a storm\n* with stars, two-colour gas clouds over a planet.\n*/\nexport interface SkyRecipe {\n/** Sky colour straight up, at the horizon, and straight down (default: as up). */\ncolors: [top: number, horizon: number, bottom?: number];\n/** Twinkling stars, 0..1. */\nstars?: number;\n/** Glowing gas clouds of two colours; amount 0..1 (0.3 a faint milky way, 1 fills the sky). */\nnebula?: { colors: [number, number]; amount?: number; };\n/** A sun, moon or planet seen straight through the portal. height: -0.2 (below the horizon) .. 1 (overhead); size: 1 = our sun, 6 = a huge planet. */\nsun?: { color?: number; height?: number; size?: number; };\n/** Drifting clouds. cover 0..1 (0.5 scattered, 1 overcast); below: also a sea of clouds under the horizon. */\nclouds?: { color?: number; shadow?: number; cover?: number; below?: boolean; };\n/** Water below the horizon, with the sun's path on it. */\nsea?: number;\n/** Land outside at the level of the real floor, in two colours: grass and earth, sand and rock, snow and ice. */\nground?: [number, number];\n/** Dark shapes along the horizon. */\nskyline?: { kind: 'mountains' | 'forest' | 'city'; color?: number; };\n/** Northern lights: colour near the horizon and colour high up. */\naurora?: [low: number, high: number];\n/** Flashes of lightning of this colour. */\nlightning?: number;\n/** How fast everything moves (default 1). */\nspeed?: number;\n}"
+  },
+  {
+   "name": "SKY",
+   "text": "/** Ready skies. Use by name, or spread one and change a layer: `{ ...SKY.sunset, sea: 0x400000 }`. */\nexport const SKY: Record<'space' | 'nebula' | 'clouds' | 'sunset' | 'storm' | 'meadow' | 'city' | 'aurora', SkyRecipe>;"
+  },
+  {
+   "name": "Wall",
+   "text": "export type Wall = 'front' | 'back' | 'left' | 'right' | 'ceiling' | 'floor';"
+  },
+  {
+   "name": "Opening",
+   "text": "/**\n* 'round' a neat portal; 'crack' a long thin fissure; 'breach' a chunk knocked\n* out of the wall; 'burst' a star-shaped impact; 'corner' a piece broken out\n* where the wall meets the ceiling. All but 'round' come out different every time.\n*/\nexport type Opening = 'round' | 'crack' | 'breach' | 'burst' | 'corner';"
+  },
+  {
+   "name": "Sky",
+   "text": "export type Sky = keyof typeof SKY | SkyRecipe;"
+  }
+ ],
+ "../furniture.js": [
+  {
+   "name": "readFurniture",
+   "text": "/**\n* Reads a detected XRMesh as furniture, or returns undefined for the mesh of\n* the whole room.\n*/\nexport function readFurniture(entity: Entity): Furniture | undefined;"
+  },
+  {
+   "name": "isRoomSurface",
+   "text": "/**\n* Is this detected plane a part of the room itself — the floor, the ceiling or\n* a wall — and not a table top, a picture or a window?\n*/\nexport function isRoomSurface(plane: Mesh): boolean;"
+  },
+  {
+   "name": "Furniture",
+   "text": "/** One real piece of furniture as an upright box, the same on every device. */\nexport interface Furniture {\nlabel: string;\n/** World position of the box's centre. */\ncentre: Vector3;\n/** Turn of the box around the vertical axis only. */\nquaternion: Quaternion;\n/** Size along the box's own x, up, z — in metres. */\nsize: Vector3;\n/** Height of its top above the world's zero. */\ntop: number;\n}"
+  }
+ ],
+ "../planets.js": [
+  {
+   "name": "realPlanet",
+   "text": "/**\n* A real planet with NASA's map on it (public domain), `radius` in metres.\n* The Sun glows by itself; Earth has clouds and a thin blue air; Saturn has\n* its rings. The equator is horizontal; spin it with\n* `planet.rotation.y += delta * speed` and tilt it with `rotation.z`.\n*/\nexport const realPlanet: typeof planet;"
+  }
+ ],
+ "../figures.js": [
+  {
+   "name": "figure",
+   "text": "/**\n* A ready figure by name, in Punto's look, one mesh: figure('pirate'), figure('zombie', { height: 1.7 }),\n* figure('knight', { face: 'angry', colors: { shirt: 'blue' } }). An unknown name throws with the list.\n*/\nexport function figure(name?: string, options?: FigureOptions): Figure;"
+  },
+  {
+   "name": "animate",
+   "text": "/** Poses the figure for this moment of an animation: call it every frame in update() with the time in seconds. */\nexport function animate(fig: Figure, anim?: FigureAnim, time?: number): void;"
+  },
+  {
+   "name": "lookAt",
+   "text": "/** Turns the head (within its limits) and, beyond them, the body towards a point in the scene. Call after animate(). */\nexport function lookAt(fig: Figure, point: Vector3): void;"
+  },
+  {
+   "name": "FigureOptions",
+   "text": "export interface FigureOptions {\n/** An adult's height in the units of the world it stands in: 1 on a tabletop board (one game unit, the default), 1.7 in the room (metres). A kid comes out smaller by itself. */\nheight?: number;\nface?: FigureFace;\ncolors?: Partial<Record<'shirt' | 'jeans' | 'boot' | 'skin' | 'hair' | 'belt', FigureColor>>;\n/** Replaces the shared toy material (it must use vertex colours). */\nmaterial?: Material;\n}"
+  },
+  {
+   "name": "Figure",
+   "text": "/** A figure: feet at y = 0, facing +Z. Put a thing into a hand with `fig.userData.joints.HandRight.add(thing)`. */\nexport interface Figure extends Group {\nuserData: { joints: Record<FigureJoint, Object3D>; outfit: string | null; stride: number; walk: string; };\n}"
+  },
+  {
+   "name": "FigureAnim",
+   "text": "/** idle, walk (the figure's own gait: a zombie shambles), run, sit, hold (both hands forward), wave, jump, shamble, aim (right arm straight forward), strike (overhead swing). */\nexport type FigureAnim = 'idle' | 'walk' | 'run' | 'sit' | 'hold' | 'wave' | 'jump' | 'shamble' | 'aim' | 'strike';"
+  },
+  {
+   "name": "FigureFace",
+   "text": "export type FigureFace = 'smile' | 'happy' | 'surprised' | 'angry' | 'zombie' | 'skull';"
+  },
+  {
+   "name": "FigureColor",
+   "text": "/** A colour by name (red, dark red, orange, yellow, green, dark green, light blue, blue, dark blue, purple, pink, white, grey, dark grey, black, brown, light brown, beige, gold, silver, turquoise) or 0xRRGGBB. */\nexport type FigureColor = string | number;"
+  },
+  {
+   "name": "FigureJoint",
+   "text": "export type FigureJoint = 'Root' | 'Body' | 'Torso' | 'Head' | 'ArmRight' | 'ArmLeft' | 'ForearmRight' | 'ForearmLeft' | 'HandRight' | 'HandLeft' | 'LegRight' | 'LegLeft' | 'ShinRight' | 'ShinLeft' | 'CoatRight' | 'CoatLeft' | 'SkirtRight' | 'SkirtLeft';"
+  }
+ ]
+}

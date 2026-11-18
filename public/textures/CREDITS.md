@@ -1,0 +1,5 @@
+- brick_4: "Brick 4" by Rob Tuytel, https://polyhaven.com/a/brick_4, CC0 1.0
+- lichen_rock: "Lichen Rock" by Rico Cilliers, https://polyhaven.com/a/lichen_rock, CC0 1.0
+- cobblestone_floor_04: "Cobblestone Floor 04" by Rob Tuytel, https://polyhaven.com/a/cobblestone_floor_04, CC0 1.0
+- wood_planks_dirt: "Wood Planks Dirt" by Rob Tuytel, https://polyhaven.com/a/wood_planks_dirt, CC0 1.0
+- mossy_cobblestone: "Mossy Cobblestone" by Sơn Nguyễn, https://polyhaven.com/a/mossy_cobblestone, CC0 1.0
